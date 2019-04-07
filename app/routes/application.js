@@ -6,6 +6,7 @@ export default Route.extend({
 	reddit: service(),
 	
 	model() {
+		return [];
 		// let res = this.reddit.api.getSubmission('2np694').body
 		// 	.then((one) => {
 		// 		console.log('Then')
