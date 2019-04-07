@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import snoowrap from 'snoowrap';
+import nprogress from 'nprogress'
 
 export default Route.extend({
 	reddit: service(),
@@ -23,5 +23,15 @@ export default Route.extend({
 			});
 		
 		return res;
+	},
+	
+	actions: {
+		loading(transition) {
+			nprogress.start();
+			transition.finally(() => {
+				nprogress.done();
+			});
+			return true;
+		}
 	}
 });
