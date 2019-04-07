@@ -7,6 +7,11 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('subreddit', { path: '/r/:name' }, function() {
+    this.route('post', { path: '/:id' });
+    this.route('create');
+  });
+  this.route('user', { path: '/user/:username' });
 });
 
 export default Router;
