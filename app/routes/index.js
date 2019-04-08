@@ -6,7 +6,7 @@ export default Route.extend({
 	model() {
 		return this.reddit.api.getHot()
 			.then(res => {
-				console.log(res);
+				console.log(res[0]);
 				return res;
 			});
 	}

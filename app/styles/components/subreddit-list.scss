@@ -1,0 +1,17 @@
+.subreddit-list {
+	background: $background-light;
+	padding-top: 1em;
+	
+	.subreddit {
+		display: flex;
+		margin-bottom: 1em;
+		.icon {
+			img {
+				border-radius: 50%;
+			}
+		}
+		.content {
+			padding-left: 0.5em;
+		}
+	}
+}

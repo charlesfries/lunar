@@ -5,25 +5,14 @@ import nprogress from 'nprogress'
 export default Route.extend({
 	reddit: service(),
 	
+	authenticatedUser: 'charlesfries', // @TODO
+	
 	model() {
-		return [];
-		// let res = this.reddit.api.getSubmission('2np694').body
-		// 	.then((one) => {
-		// 		console.log('Then')
-		// 		console.log(res);
-		// 	})
-		// 	.catch((one) => {
-		// 		console.log('Catch')
-		// 		console.log(res);
-		// 	});
-		
-		let res = this.reddit.api.getHot()
-			.then((data) => {
-				console.log(data);
-				return data;
+		return this.reddit.api.getMe()
+			.then(res => {
+				// console.log(res);
+				return res;
 			});
-		
-		return res;
 	},
 	
 	actions: {

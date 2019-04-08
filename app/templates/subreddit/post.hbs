@@ -1,1 +1,21 @@
+<p>
+	{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}
+	&middot;
+	Posted by {{model.author_fullname}}
+</p>
+<h3>{{model.title}}</h3>
+<PostActions @model={{model}} />
+<hr />
+{{#if model.thumbnail}}
+	<a href={{model.url}} target="_blank">
+		<img src={{model.url}} />
+	</a>
+{{/if}}
+<hr />
+
+<div class="form-group">
+	<label for="exampleFormControlTextarea1">Example textarea</label>
+	<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
+
 {{outlet}}

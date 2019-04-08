@@ -1,10 +1,15 @@
-
-
-<div class="left">
+<div class="score">
+	<h5>{{model.score}}</h5>
 </div>
-<div class="right">
-	<h5>{{#link-to "subreddit.post" "zzz" model.id}}{{model.title}}{{/link-to}}</h5>
-	<p>{{model.title}} / {{model}}</p>
+<div class="thumbnail">
+	{{#if model.url}}
+		<a href={{model.url}} target="_blank">
+			<img src={{model.thumbnail}} />
+		</a>
+	{{/if}}
 </div>
-
-<hr />
+<div class="content">
+	<h5>{{#link-to "subreddit.post" (subcleaner model.subreddit_name_prefixed) model.id}}{{model.title}}{{/link-to}}</h5>
+	<p>{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}</p>
+	<PostActions @model={{model}} />
+</div>

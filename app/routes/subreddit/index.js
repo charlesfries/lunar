@@ -3,11 +3,8 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
 	reddit: service(),
-	model({ id }) {
-		return this.reddit.api.getSubmission(id).fetch()
-			.then(data => {
-				console.log(data);
-				return data;
-			});
+	model() {
+		let { name } = this.paramsFor('subreddit');
+		return this.reddit.api.getSubreddit(name).getHot();
 	}
 });

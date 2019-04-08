@@ -1,9 +1,22 @@
 .post {
 	display: flex;
-	.left {
-		
+	padding: 0.5em;
+	background: $background-light;
+	border: 1px solid silver;
+	border-bottom: none;
+	
+	&:first-child {
+		margin-top: 1em;
 	}
-	.right {
-		background: lightgrey;
+	
+	.score {
+		flex: 0 0 6em;
+	}
+	.thumbnail {
+		// background: lightgrey;
+	}
+	.content {
+		flex-grow: 1;
+		padding-left: 0.5em;
 	}
 }

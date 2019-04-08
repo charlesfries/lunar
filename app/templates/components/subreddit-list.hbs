@@ -1,3 +1,10 @@
-{{#link-to "subreddit" "aaa"}}First{{/link-to}}<br />
-{{#link-to "subreddit" "bbb"}}First{{/link-to}}<br />
-Test
+{{#each model as |subreddit|}}
+	<div class="subreddit" {{action onSelection subreddit}}>
+		<div class="icon">
+			<img src="https://via.placeholder.com/30" />
+		</div>
+		<div class="content">
+			r/{{subreddit}}
+		</div>
+	</div>
+{{/each}}
