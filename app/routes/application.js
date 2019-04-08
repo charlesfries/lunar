@@ -8,16 +8,10 @@ export default Route.extend({
 	authenticatedUser: 'charlesfries', // @TODO
 	
 	model() {
-// 		return new Promise((resolve, reject) => {
-//   let wait = setTimeout(() => {
-//     clearTimout(wait);
-//     reject('Promise A win!');
-//   }, 20000)
-// });
 		return this.reddit.api.getMe()
-			.then(res => {
-				// console.log(res);
-				return res;
+			.then(data => {
+				console.log('me', data);
+				return data;
 			});
 	},
 	

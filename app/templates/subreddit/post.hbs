@@ -2,11 +2,13 @@
 	<p>
 		{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}
 		&middot;
-		Posted by u/{{model.author_fullname}}
+		Posted by {{#link-to "subreddit" "apple"}}u/{{model.author.name}}{{/link-to}} {{time-ago model.created}}
 	</p>
-	<h3>{{model.title}}</h3>
-	<PostActions @model={{model}} @onComments={{action "goToPost"}} />
-	<hr />
+	<h4>{{model.title}}</h4>
+	{{#unless model.is_self}}
+		<p><a href={{model.url}} target="_blank">{{model.url}}</a></p>
+	{{/unless}}
+	
 	{{#if model.is_self}}
 		<p>{{{model.selftext_html}}}</p>
 	{{else}}
@@ -14,8 +16,12 @@
 			<img  src={{model.url}} class="submission-image" />
 		</a>
 	{{/if}}
-	<hr />
-
+	<br />
+	
+	<PostActions @model={{model}} @onComments={{action "goToPost"}} />
+	
+	<br />
+	
 	<div class="form-group">
 		<label for="comment">Comment</label>
 		<textarea class="form-control" id="comment" rows="3" placeholder="What are your thoughts?"></textarea>

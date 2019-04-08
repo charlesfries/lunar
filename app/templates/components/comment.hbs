@@ -1,15 +1,14 @@
 <div class="comment">
-	<div class="inner ml-4">
-		<p>
+	<div class="inner ml-3">
+		<p class="details">
 			<a href="#" {{action "toggleCollapsed"}}><i class="fa fa-{{if model.collapsed "plus" "minus"}}"></i></a>
 			<span class="badge badge-secondary">{{model.author_flair_text}}</span> <b>{{model.score}}</b> {{model.score}} points &middot; {{model.created}}
 		</p>
 		{{#unless model.collapsed}}
-			<p>{{model.body}}</p>
+			<p class="body">{{model.body}}</p>
 			{{#each model.replies as |comment|}}
 				<Comment @model={{comment}} />
 			{{/each}}
 		{{/unless}}
 	</div>
 </div>
-<hr />

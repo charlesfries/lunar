@@ -5,9 +5,9 @@ export default Route.extend({
 	reddit: service(),
 	model() {
 		return this.reddit.api.getHot()
-			.then(res => {
-				console.log(res[0]);
-				return res;
+			.then(data => {
+				console.log(data[1]);
+				return data;
 			});
 	}
 });

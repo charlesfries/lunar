@@ -1,8 +1,13 @@
 <div class="row">
-	<div class="col-9">
+	<div class="col-9 no-padding py-3 pl-3 pr-0">
 		{{outlet}}
 	</div>
-	<div class="col-3">
-		Subreddit Sidebar
+	<div class="col-3 no-padding p-3">
+		<Sidebar>
+			<h4>r/{{model.display_name}}</h4>
+			<h5>Subscribers: {{model.subscribers}}</h5>
+			<h5>Online: {{model.active_user_count}}</h5>
+			<p>{{model.public_description}}</p>
+		</Sidebar>
 	</div>
 </div>

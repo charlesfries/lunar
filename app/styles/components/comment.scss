@@ -1,6 +1,13 @@
 .comment {
 	border-left: 1px solid silver;
 	
+	.details {
+		margin-bottom: 0.3em;
+		color: $comment-details;
+	}
+	.body {
+		
+	}
 	// &.collapsed .itself {
 	// 	display: none;
 	// }
