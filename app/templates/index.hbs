@@ -1,4 +1,12 @@
-{{#each model as |post|}}
-	<Post @model={{post}} />
-{{/each}}
+<div class="row">
+	<div class="col-9">
+		{{#each model as |post|}}
+			<Post @model={{post}} @onSelection={{action "goToPost"}} />
+		{{/each}}
+	</div>
+	<div class="col-3">
+		Feed Sidebar
+	</div>
+</div>
+
 {{outlet}}

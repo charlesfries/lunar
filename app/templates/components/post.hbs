@@ -1,5 +1,11 @@
 <div class="score">
-	<h5>{{model.score}}</h5>
+	<div class="up">
+		<i class="fa fa-arrow-up"></i>
+	</div>
+	<h6 class="votes">{{score model.score}}</h6>
+	<div class="down">
+		<i class="fa fa-arrow-down"></i>
+	</div>
 </div>
 <div class="thumbnail">
 	{{#if model.url}}
@@ -9,7 +15,16 @@
 	{{/if}}
 </div>
 <div class="content">
-	<h5>{{#link-to "subreddit.post" (subcleaner model.subreddit_name_prefixed) model.id}}{{model.title}}{{/link-to}}</h5>
-	<p>{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}</p>
-	<PostActions @model={{model}} />
+	<h5>
+		{{#link-to "subreddit.post" (subcleaner model.subreddit_name_prefixed) model.id class="text-dark"}}{{model.title}}{{/link-to}}
+		{{#unless model.is_self}}
+			<small><a href={{model.url}} target="_blank">{{model.url}}</a></small>
+		{{/unless}}
+	</h5>
+	<p>
+		{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}
+		&middot;
+		Posted by u/{{model.author_fullname}}
+	</p>
+	<PostActions @model={{model}} @onComments={{action onSelection}} />
 </div>

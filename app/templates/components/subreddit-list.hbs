@@ -1,3 +1,31 @@
+{{!-- feeds --}}
+<h6>Feeds</h6>
+{{#each defaults as |subreddit|}}
+	<div class="subreddit" {{action onSelection subreddit}}>
+		<div class="icon">
+			<img src="https://via.placeholder.com/30" />
+		</div>
+		<div class="content">
+			{{subreddit}}
+		</div>
+	</div>
+{{/each}}
+
+{{!-- user favorites --}}
+<h6>Favorites</h6>
+{{#each model as |subreddit|}}
+	<div class="subreddit" {{action onSelection subreddit}}>
+		<div class="icon">
+			<img src="https://via.placeholder.com/30" />
+		</div>
+		<div class="content">
+			r/{{subreddit}}
+		</div>
+	</div>
+{{/each}}
+
+{{!-- user subscriptions --}}
+<h6>Subscriptions</h6>
 {{#each model as |subreddit|}}
 	<div class="subreddit" {{action onSelection subreddit}}>
 		<div class="icon">
