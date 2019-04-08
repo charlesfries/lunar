@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-	classNames: ['col-2', 'subreddit-list']
+	tagName: 'nav',
+	classNames: ['subreddit-list', 'sidebar', 'col-2', 'bg-light', 'p-0']
 });
