@@ -1,0 +1,7 @@
+<div class="comment ml-4">
+	<p><b>{{model.score}}</b> {{model.body}}</p>
+	{{#each model.replies as |comment|}}
+		<Comment @model={{comment}} />
+	{{/each}}
+</div>
+<hr />

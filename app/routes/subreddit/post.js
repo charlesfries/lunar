@@ -6,7 +6,7 @@ export default Route.extend({
 	model({ id }) {
 		return this.reddit.api.getSubmission(id).fetch()
 			.then(data => {
-				console.log(data);
+				console.log(data.comments[0]);
 				return data;
 			});
 	}

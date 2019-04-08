@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-10">
+	<div class="col-9">
 		<p>
 			{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}
 			&middot;
@@ -19,8 +19,10 @@
 			<label for="exampleFormControlTextarea1">Example textarea</label>
 			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 		</div>
+		
+		<Comments @model={{model.comments}} />
 	</div>
-	<div class="col-2">
+	<div class="col-3">
 		Subreddit Sidebar
 	</div>
 </div>
