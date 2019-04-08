@@ -1,0 +1,18 @@
+<div class="subnav">
+	
+	<form class="form-inline">
+		<div class="form-group">
+			<select class="form-control form-control-sm">
+				<option>Hot</option>
+				<option>New</option>
+				<option>Controversial</option>
+				<option>Top</option>
+				<option>Rising</option>
+			</select>
+		</div>
+	</form>
+</div>
+
+{{#each model as |post|}}
+	<Post @model={{post}} @onSelection={{action onSelection}} />
+{{/each}}

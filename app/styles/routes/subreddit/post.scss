@@ -1,3 +1,10 @@
-.submission-image {
-	width: 100%;
+.subreddit-post {
+	margin-top: 1.5em;
+	margin-left: 0.5em;
+	padding: 1em;
+	background: $background-light;
+	
+	.submission-image {
+		width: 100%;
+	}
 }

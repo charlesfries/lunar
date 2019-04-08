@@ -1,10 +1,7 @@
 body {
 	background: $background !important;
 	font-size: .875rem !important;
-}
-
-.subnav {
-	background: $background-light;
+  padding-top: 3.5rem;
 }
 
 
@@ -14,9 +11,9 @@ body {
 
 
 
-body {
-  font-size: .875rem;
-}
+/*
+ * Sidebar STUFF
+ */
 
 .feather {
   width: 16px;

@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	{{#link-to "index" class="navbar-brand"}}{{config "APP.name"}}{{/link-to}}
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+	{{#link-to "index" class="navbar-brand"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
@@ -9,8 +9,27 @@
 			<!-- <li class="nav-item active">
 				{{#link-to "index" class="nav-link"}}Home{{/link-to}}
 			</li> -->
-			<li class="nav-item">
+			<!-- <li class="nav-item">
 				<span class="navbar-text">{{formattedCurrentSubreddit}}</span>
+			</li> -->
+			<li class="nav-item">
+				<div class="btn-group">
+					<button type="button" class="btn btn-outline-success" {{action "goTo" currentSubreddit}}>{{formattedCurrentSubreddit}}</button>
+					<button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<div class="dropdown-menu">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Separated link</a>
+					</div>
+				</div>
+				
+				
+				
+				<!-- <a class="nav-link p-0" href="#"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">{{formattedCurrentSubreddit}}</button></a> -->
 			</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
@@ -25,9 +44,6 @@
 					<a class="dropdown-item" href="#">Something else here</a>
 				</div>
 			</li>
-			<li class="nav-item">
-				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-			</li>
 		</ul>
 		<!-- <form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -38,18 +54,8 @@
 
 <div class="container-fluid">
 	<div class="row">
-		
-		
-		
-		
-		
-		
-		
 		<SubredditList @model={{userSubreddits}} @defaults={{defaultSubreddits}} @onSelection={{action "goTo"}} />
 		<div class="col-10">
-			<div class="subnav">
-				Sort: Sort
-			</div>
 			{{outlet}}
 		</div>
 	</div>

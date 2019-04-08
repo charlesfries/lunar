@@ -1,29 +1,27 @@
-<div class="row">
-	<div class="col-9">
-		<p>
-			{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}
-			&middot;
-			Posted by u/{{model.author_fullname}}
-		</p>
-		<h3>{{model.title}}</h3>
-		<PostActions @model={{model}} @onComments={{action "goToPost"}} />
-		<hr />
-		{{#if model.thumbnail}}
-			<a href={{model.url}} target="_blank">
-				<img  src={{model.url}} class="submission-image" />
-			</a>
-		{{/if}}
-		<hr />
+<div class="subreddit-post">
+	<p>
+		{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}
+		&middot;
+		Posted by u/{{model.author_fullname}}
+	</p>
+	<h3>{{model.title}}</h3>
+	<PostActions @model={{model}} @onComments={{action "goToPost"}} />
+	<hr />
+	{{#if model.is_self}}
+		<p>{{{model.selftext_html}}}</p>
+	{{else}}
+		<a href={{model.url}} target="_blank">
+			<img  src={{model.url}} class="submission-image" />
+		</a>
+	{{/if}}
+	<hr />
 
-		<div class="form-group">
-			<label for="exampleFormControlTextarea1">Example textarea</label>
-			<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-		</div>
-		
-		<Comments @model={{model.comments}} />
+	<div class="form-group">
+		<label for="comment">Comment</label>
+		<textarea class="form-control" id="comment" rows="3" placeholder="What are your thoughts?"></textarea>
 	</div>
-	<div class="col-3">
-		Subreddit Sidebar
-	</div>
+	
+	<hr />
+	<Comments @model={{model.comments}} />
 </div>
 {{outlet}}
