@@ -32,7 +32,6 @@ export default Controller.extend({
 			this.transitionToRoute(routeName);
 		},
 		goToSubreddit(name) {
-			console.log('goToSubreddit', name)
 			this.transitionToRoute('subreddit', name);
 		}
 	}
