@@ -1,1 +1,73 @@
-<Loader />
+<div class="subnav">
+	<form class="form-inline">
+		<div class="form-group">
+			<select class="form-control form-control-sm">
+				<option>Hot</option>
+				<option>New</option>
+				<option>Controversial</option>
+				<option>Top</option>
+				<option>Rising</option>
+			</select>
+		</div>
+	</form>
+</div>
+
+<div>
+	<div class="score">
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.img}}
+		{{/content-placeholders}}
+	</div>
+	<div class="thumbnail">
+		
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.img}}
+		{{/content-placeholders}}
+	</div>
+	<div class="content">
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.text lines=2}}
+			{{placeholder.text lines=1}}
+			{{placeholder.text lines=1}}
+		{{/content-placeholders}}
+	</div>
+</div>
+<div>
+	<div class="score">
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.img}}
+		{{/content-placeholders}}
+	</div>
+	<div class="thumbnail">
+		
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.img}}
+		{{/content-placeholders}}
+	</div>
+	<div class="content">
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.text lines=2}}
+			{{placeholder.text lines=1}}
+			{{placeholder.text lines=1}}
+		{{/content-placeholders}}
+	</div>
+</div><div>
+	<div class="score">
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.img}}
+		{{/content-placeholders}}
+	</div>
+	<div class="thumbnail">
+		
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.img}}
+		{{/content-placeholders}}
+	</div>
+	<div class="content">
+		{{#content-placeholders as |placeholder|}}
+			{{placeholder.text lines=2}}
+			{{placeholder.text lines=1}}
+			{{placeholder.text lines=1}}
+		{{/content-placeholders}}
+	</div>
+</div>
