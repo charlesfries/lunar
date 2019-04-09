@@ -21,8 +21,13 @@ module.exports = function(environment) {
 			// Here you can pass flags/options to your application instance
       // when it is created
 			name: 'Lunar'
-    }
-  };
+    },
+		
+		'ember-cli-notifications': {
+			autoClear: true,
+			clearDuration: 3000
+		}
+	};
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
