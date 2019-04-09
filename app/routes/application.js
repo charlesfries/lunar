@@ -1,4 +1,5 @@
 import Route from '@ember/routing/route';
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import nprogress from 'nprogress'
 

@@ -12,6 +12,8 @@ Router.map(function() {
     this.route('create');
   });
   this.route('user', { path: '/u/:username' });
+  this.route('popular');
+  this.route('all', { path: '/r/all' });
 });
 
 export default Router;

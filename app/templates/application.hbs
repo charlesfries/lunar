@@ -36,7 +36,7 @@
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Dropdown
+					{{authenticatedUser}}
 				</a>
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<a class="dropdown-item" href="#">Action</a>
@@ -55,7 +55,7 @@
 
 <div class="container-fluid">
 	<div class="row">
-		<SubredditList @model={{userSubreddits}} @defaults={{defaultSubreddits}} @onSelection={{action "goTo"}} />
+		<SubredditList @model={{userSubreddits}} @defaults={{defaultSubreddits}} @onTransition={{action "onTransition"}} @onSelection={{action "goTo"}} />
 		<div class="col-10">
 			{{outlet}}
 		</div>

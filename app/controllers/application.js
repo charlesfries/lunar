@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 
 export default Controller.extend({
-	defaultSubreddits: ['Home', 'Popular', 'All'],
+	// defaultSubreddits: ['Home', 'Popular', 'All'],
 	userSubreddits: ['apple', 'bitcoin', 'cringe', 'roadcam', 'technology', 'videos'],
 	currentSubreddit: 'all',
 	
@@ -11,6 +11,9 @@ export default Controller.extend({
 	}),
 	
 	actions: {
+		onTransition(routeName) {
+			this.transitionToRoute(routeName);
+		},
 		goTo(name) {
 			this.transitionToRoute('subreddit', name);
 		}
