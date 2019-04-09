@@ -1,17 +1,9 @@
 {{notification-container position="bottom-left"}}
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-	<ul class="navbar-nav mr-3">
-		<li class="nav-item">
-			<button type="button" class="btn btn-outline-secondary"><span class="navbar-toggler-icon"></span></button>
-		</li>
-	</ul>
-	
-	
 	{{#link-to "index" class="navbar-brand"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-	
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
@@ -53,7 +45,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<SubredditList @model={{userSubreddits}} @defaults={{defaultSubreddits}} @onTransition={{action "onTransition"}} @onSelection={{action "goTo"}} />
-		<div class="col-10">
+		<div class="main col-10">
 			{{outlet}}
 		</div>
 	</div>

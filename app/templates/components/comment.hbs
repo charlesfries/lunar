@@ -2,7 +2,9 @@
 	<div class="inner ml-3">
 		<p class="details">
 			<a href="#" {{action "toggleCollapsed"}}><i class="fa fa-{{if model.collapsed "plus" "minus"}}"></i></a>
-			<span class="badge badge-secondary">{{model.author_flair_text}}</span> <b>{{model.author.name}}</b> {{score model.score}} points &middot; {{time-ago model.created}}
+			<span class="badge badge-secondary">{{model.author_flair_text}}</span>
+			{{#link-to "user" "charlesfries" class="font-weight-bold"}}{{model.author.name}}{{/link-to}}
+			{{score model.score}} points &middot; {{time-ago model.created}}
 		</p>
 		{{#unless model.collapsed}}
 			<p class="body">{{model.body}}</p>

@@ -1,3 +1,22 @@
-<h4>u/{{model.username}}</h4>
+<div class="row">
+	<div class="col-9">
+		<h4>u/{{model.submissions}}</h4>
+		<hr />
+		
+		<h5>Posts</h5>
+		<Posts @model={{model}} @onSelection={{action "goToPost"}} />
+		
+		<h5>Comments</h5>
+		<!-- {{#each model as |submission|}}
+			<p>{{submission.title}}</p>
+		{{/each}} -->
+	</div>
+	<div class="col-3">
+		<Sidebar>
+			Feed Sidebar<br />
+			Test
+		</Sidebar>
+	</div>
+</div>
 
 {{outlet}}
