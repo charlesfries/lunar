@@ -5,8 +5,7 @@ $padding: 0.5em;
 	display: flex;
 	padding: $padding;
 	background: $background-light;
-	border: 1px solid silver;
-	border-bottom: none;
+	border-bottom: 1px solid $line-color;
 	
 	&:first-child {
 		border-top-left-radius: 0.3em;

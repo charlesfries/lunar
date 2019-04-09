@@ -15,7 +15,7 @@ export default Controller.extend({
 		this._super(...arguments);
 		this.set('authenticatedUser', 'charlesfries'); // @TODO
 		this.set('userSubreddits', ['apple', 'bitcoin', 'cringe', 'roadcam', 'technology', 'videos']);
-		this.set('currentFeed', 'feeds.home');
+		// this.set('currentFeed', 'feeds.home');
 		
 		this.set('subreddits', {
 			// feeds: ['Home', 'Popular', 'All'],

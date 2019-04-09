@@ -1,3 +1,5 @@
-{{#each model as |post|}}
-	<Post @model={{post}} @onSelection={{action onSelection}} />
-{{/each}}
+<Panel>
+	{{#each model as |post|}}
+		<Post @model={{post}} @onSelection={{action onSelection}} />
+	{{/each}}
+</Panel>

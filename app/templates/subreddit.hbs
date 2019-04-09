@@ -4,7 +4,7 @@
 		<Posts @model={{model}} @onSelection={{action "goToPost"}} />
 	</div>
 	<div class="{{unless currentPost "col-3" "col-8"}}">
-		<Sidebar>
+		<Panel>
 			{{#unless currentPost}}
 				Subreddit
 				<!-- <h4>r/{{model.display_name}}</h4>
@@ -14,6 +14,6 @@
 			{{else}}
 				{{outlet}}
 			{{/unless}}
-		</Sidebar>
+		</Panel>
 	</div>
 </div>

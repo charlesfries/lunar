@@ -3,6 +3,10 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
 	reddit: service(),
+	beforeModel() {
+		let controller = this.controllerFor('application');
+		controller.set('currentFeed', 'all');
+	},
 	model() {
 		return this.reddit.api.getSubreddit('all').getHot()
 			.then(data => {

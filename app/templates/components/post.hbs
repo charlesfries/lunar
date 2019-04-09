@@ -3,9 +3,10 @@
 </div>
 <div class="thumbnail">
 	{{#if model.is_self}}
-		{{#link-to "subreddit.post" (subcleaner model.subreddit_name_prefixed) model.id}}
+		<!-- {{#link-to "subreddit.post" (subcleaner model.subreddit_name_prefixed) model.id}}
 			<img src="/images/self-post.png" alt="">
-		{{/link-to}}
+		{{/link-to}} -->
+		<a href="#" class="text-dark" {{action onSelection}}><img src="/images/self-post.png" alt=""></a>
 	{{else}}
 		<a href={{model.url}} target="_blank" rel="noopener">
 			<img src={{model.thumbnail}} alt="">
@@ -14,7 +15,9 @@
 </div>
 <div class="content">
 	<h6>
-		{{#link-to "subreddit.post" (subcleaner model.subreddit_name_prefixed) model.id class="text-dark"}}{{model.title}}{{/link-to}}
+		<a href="#" class="text-dark" {{action onSelection}}>{{model.title}}</a>
+		
+		<!-- {{#link-to "subreddit.post" (subcleaner model.subreddit_name_prefixed) model.id class="text-dark"}}{{model.title}}{{/link-to}} -->
 		{{#unless model.is_self}}
 			<small><a href={{model.url}} target="_blank" rel="noopener">{{url-helper model.url}}</a></small>
 		{{/unless}}
