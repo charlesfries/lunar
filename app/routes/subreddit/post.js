@@ -9,17 +9,22 @@ export default Route.extend({
 			.then(data => {
 				
 				data.author = Object.assign({}, data.author)
-				console.log('Post', data);
+				// console.log('Post', data);
 				
-				// // console.log(data.comments[0])
-				// 
-				// data.comments = data.comments
-				// 	.map(comment => {
-				// 		comment.author = Object.assign({}, comment.author);
-				// 		return comment
-				// 	});
-				// 
-				// console.log(data.comments[0].author.name)
+				function unwrapReplies(root) {
+					return root.replies
+						.map(reply => {
+							reply.replies = unwrapReplies(reply);
+							reply.author = Object.assign({}, reply.author);
+							return reply
+						});
+				}
+				
+				data.comments
+					.map(comment => {
+						comment.author = Object.assign({}, comment.author);
+						comment.comments = unwrapReplies(comment)
+					});
 				
 				return data;
 			});
