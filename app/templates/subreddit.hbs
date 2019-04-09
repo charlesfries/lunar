@@ -6,11 +6,13 @@
 	<div class="{{unless currentPost "col-3" "col-8"}} pl-0 ml-0">
 		<Panel>
 			{{#unless currentPost}}
-				Subreddit
-				<!-- <h4>r/{{model.display_name}}</h4>
-				<h5>Subscribers: {{model.subscribers}}</h5>
-				<h5>Online: {{model.active_user_count}}</h5>
-				<p>{{model.public_description}}</p> -->
+				<Sidebar>
+					Subreddit
+					<!-- <h4>r/{{model.display_name}}</h4>
+					<h5>Subscribers: {{model.subscribers}}</h5>
+					<h5>Online: {{model.active_user_count}}</h5>
+					<p>{{model.public_description}}</p> -->
+				</Sidebar>
 			{{else}}
 				{{outlet}}
 			{{/unless}}

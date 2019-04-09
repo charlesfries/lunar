@@ -10,6 +10,7 @@ export default Controller.extend({
 	subreddits: null,
 	currentFeed: null,
 	currentSubreddit: null,
+	currentPost: null,
 	
 	init() {
 		this._super(...arguments);
@@ -32,11 +33,13 @@ export default Controller.extend({
 		goToRoute(routeName) {
 			this.set('currentFeed', routeName);
 			this.set('currentSubreddit', null);
+			this.set('currentPost', null);
 			this.transitionToRoute(routeName);
 		},
 		goToSubreddit(name) {
 			this.set('currentFeed', null);
 			this.set('currentSubreddit', name);
+			this.set('currentPost', null);
 			this.transitionToRoute('subreddit', name);
 		}
 	}

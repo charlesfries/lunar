@@ -15,10 +15,12 @@
 					{{#if currentSubreddit}}
 						<button type="button" class="btn btn-outline-success" {{action "goToSubreddit" currentSubreddit}}>/{{formattedCurrentSubreddit}}</button>
 						<button type="button" class="btn btn-outline-success"><i class="fa fa-caret-down"></i></button>
-					{{/if}}
-					{{#if currentSubreddit}}
+						<button type="button" class="btn btn-outline-success"><i class="fa fa-times"></i></button>
 						<button type="button" class="btn btn-outline-success">/hot</button>
-						<button type="button" class="btn btn-outline-success"><i class="fa fa-caret-down"></i></button>
+					{{/if}}
+					{{#if currentPost}}
+						<button type="button" class="btn btn-outline-info">/{{currentPost}}</button>
+						<button type="button" class="btn btn-outline-info"><i class="fa fa-times"></i></button>
 					{{/if}}
 				</div>
 			</li>
