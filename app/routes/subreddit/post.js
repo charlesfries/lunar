@@ -4,11 +4,9 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
 	reddit: service(),
 	
-	
 	model({ id }) {
 		return this.reddit.api.getSubmission(id).fetch()
 			.then(data => {
-				
 				
 				data.author = Object.assign({}, data.author)
 				console.log('Post', data);

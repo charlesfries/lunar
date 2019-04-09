@@ -5,7 +5,7 @@
 			<p class="context">
 				{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed) class="text-dark font-weight-bold"}}{{model.subreddit_name_prefixed}}{{/link-to}}
 				&middot;
-				Posted by {{#link-to "user" model.author.name}}u/{{model.author.name}}{{/link-to}} {{time-ago model.created}}
+				Posted by {{#link-to "user" model.author.name}}u/{{model.author.name}}{{/link-to}} {{time-ago model.created_utc}}
 			</p>
 			<h5 class="title">{{model.title}}</h5>
 			{{#unless model.is_self}}
