@@ -4,10 +4,6 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
 	reddit: service(),
 	model() {
-		return this.reddit.api.getSubreddit('videos').fetch()
-			.then(data => {
-				console.log(data);
-				return data;
-			});
+		return this.reddit.api.getSubreddit('videos').fetch();
 	}
 });

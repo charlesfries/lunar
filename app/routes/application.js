@@ -6,8 +6,6 @@ import nprogress from 'nprogress'
 export default Route.extend({
 	reddit: service(),
 	
-	authenticatedUser: 'charlesfries', // @TODO
-	
 	model() {
 		return this.reddit.api.getMe()
 			.then(data => {

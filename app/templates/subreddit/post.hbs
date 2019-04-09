@@ -1,5 +1,5 @@
 <div class="subreddit-post">
-	<div class="header">
+	<section class="header">
 		<PostScore @model={{model}} />
 		<div class="details">
 			<p class="context">
@@ -12,27 +12,24 @@
 				<p><a href={{model.url}} target="_blank">{{url-helper model.url}}</a></p>
 			{{/unless}}
 		</div>
-	</div>
-	
-	{{#if model.is_self}}
-		<p>{{{model.selftext_html}}}</p>
-	{{else}}
-		<a href={{model.url}} target="_blank">
-			<img  src={{model.url}} class="submission-image" />
-		</a>
-	{{/if}}
-	<br />
-	
-	<PostActions @model={{model}} @onComments={{action "goToPost"}} />
-	
-	<br />
-	
-	<div class="form-group">
-		<label for="comment">Comment</label>
-		<textarea class="form-control" id="comment" rows="3" placeholder="What are your thoughts?"></textarea>
-	</div>
-	
-	<hr />
+	</section>
+	<section class="post-body">
+		{{#if model.is_self}}
+			{{{model.selftext_html}}}
+		{{else}}
+			<a href={{model.url}} target="_blank"><img src={{model.url}} /></a>
+		{{/if}}
+	</section>
+	<section class="actions">
+		<PostActions @model={{model}} @onComments={{action "goToPost"}} />
+	</section>
+	<section class="compose">
+		<div class="form-group">
+			<label for="comment">Comment</label>
+			<textarea class="form-control" id="comment" rows="4" placeholder="What are your thoughts?"></textarea>
+		</div>
+		<button type="button" class="btn btn-sm btn-primary">Comment</button>
+	</section>
 	<Comments @model={{model.comments}} />
 </div>
 {{outlet}}
