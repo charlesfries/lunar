@@ -1,0 +1,17 @@
+$padding: 0.5em;
+
+.post-score {
+	width: 8em;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	padding-right: $padding;
+	.up {
+	}
+	.score {
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+	}
+	.down {
+	}
+}

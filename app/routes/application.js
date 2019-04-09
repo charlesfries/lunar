@@ -10,7 +10,7 @@ export default Route.extend({
 	model() {
 		return this.reddit.api.getMe()
 			.then(data => {
-				console.log('me', data);
+				// console.log('Me', data);
 				return data;
 			});
 	},

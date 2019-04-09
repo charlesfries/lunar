@@ -1,7 +1,7 @@
 <div class="up">
-	<a href="#" {{action "upvote"}}><i class="fa fa-arrow-up"></i></a>
+	<a href="#" class="text-dark" {{action "upvote"}}><i class="fa fa-arrow-up"></i>{{if isUpvoted "&middot;"}}</a>
 </div>
-<h6 class="votes">{{score model.score}}</h6>
+<h6 class="score">{{score model.score}}</h6>
 <div class="down">
-	<a href="#" {{action "downvote"}}><i class="fa fa-arrow-down"></i></a>
+	<a href="#" class="text-dark" {{action "downvote"}}><i class="fa fa-arrow-down"></i>{{if isUpvoted "&middot;"}}</a>
 </div>

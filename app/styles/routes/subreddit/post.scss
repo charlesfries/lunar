@@ -3,8 +3,30 @@
 	border-radius: 0.3em;
 	background: $background-light;
 	
+	.header {
+		display: flex;
+		padding-bottom: 1em;
+		
+		.details {
+			padding-left: 1em;
+			p {
+				// margin-bottom: 0.3em;
+				margin: 0;
+			}
+			.title {
+				margin: 0.3em 0;
+			}
+		}
+		.context {
+			color: $context-color;
+		}
+		
+	}
+	
 	.submission-image {
 		max-width: 600px;
 		max-height: 600px;
 	}
+	
+	
 }

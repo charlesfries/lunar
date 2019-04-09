@@ -1,14 +1,18 @@
 <div class="subreddit-post">
-	<PostScore @model={{model}} />
-	<p>
-		{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}
-		&middot;
-		Posted by {{#link-to "user" model.author.name}}u/{{model.author.name}}{{/link-to}} {{time-ago model.created}}
-	</p>
-	<h4>{{model.title}}</h4>
-	{{#unless model.is_self}}
-		<p><a href={{model.url}} target="_blank">{{url-helper model.url}}</a></p>
-	{{/unless}}
+	<div class="header">
+		<PostScore @model={{model}} />
+		<div class="details">
+			<p class="context">
+				{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed) class="text-dark font-weight-bold"}}{{model.subreddit_name_prefixed}}{{/link-to}}
+				&middot;
+				Posted by {{#link-to "user" model.author.name}}u/{{model.author.name}}{{/link-to}} {{time-ago model.created}}
+			</p>
+			<h5 class="title">{{model.title}}</h5>
+			{{#unless model.is_self}}
+				<p><a href={{model.url}} target="_blank">{{url-helper model.url}}</a></p>
+			{{/unless}}
+		</div>
+	</div>
 	
 	{{#if model.is_self}}
 		<p>{{{model.selftext_html}}}</p>

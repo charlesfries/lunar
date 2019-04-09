@@ -12,26 +12,6 @@ $padding: 0.5em;
 		margin-top: 1em;
 	}
 	
-	.score {
-		flex: 0 0 5em;
-		flex-direction: column;
-		padding-right: $padding;
-		
-		.up {
-			
-		}
-		
-		.down {
-			
-		}
-		
-		.votes {
-			margin-top: 0.3em;
-			margin-bottom: 0.3em;
-		}
-		
-		text-align: center;
-	}
 	.thumbnail {
 		// background: lightgrey;
 		img {
