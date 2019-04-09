@@ -1,0 +1,10 @@
+<div class="sidebar-sticky">
+	{{#subreddit-list/group title="Feeds" model=model.feeds isStatic=true onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}}
+	{{#subreddit-list/group title="Favorites" model=model.favorites onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}}
+	{{#subreddit-list/group title="Subscriptions" model=model.subscriptions onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}}
+	
+	{{!#each model as |group| }}
+		<!-- <SubredditList-Group @title={{row.title}} /> -->
+		{{!#subreddit-list/group model=group}}{{!/subreddit-list/group}}
+	{{!/each}}
+</div>

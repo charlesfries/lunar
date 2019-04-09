@@ -4,8 +4,7 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
 	reddit: service(),
 	model() {
-		let { name } = this.paramsFor('subreddit');
-		return this.reddit.api.getSubreddit(name).getHot()
+		return this.reddit.api.getSubreddit('all').getHot()
 			.then(data => {
 				return data.map(post => {
 					post.author = Object.assign({}, post.author);

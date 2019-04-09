@@ -7,13 +7,16 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+	this.route('feed', function() {
+	  this.route('home');
+	  this.route('popular');
+	  this.route('all');
+	});
   this.route('subreddit', { path: '/r/:name' }, function() {
     this.route('post', { path: '/:id' });
     this.route('create');
   });
   this.route('user', { path: '/u/:username' });
-  this.route('popular');
-  this.route('all', { path: '/r/all' });
 });
 
 export default Router;

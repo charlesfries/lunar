@@ -1,15 +1,15 @@
 <div class="row">
 	<div class="col-9">
 		<h4>u/{{model.submissions}}</h4>
-		<hr />
+		<hr>
 		
 		<h5>Posts</h5>
 		<Posts @model={{model}} @onSelection={{action "goToPost"}} />
 		
 		<h5>Comments</h5>
-		<!-- {{#each model as |submission|}}
+		{{!-- {{#each model as |submission|}}
 			<p>{{submission.title}}</p>
-		{{/each}} -->
+		{{/each}} --}}
 	</div>
 	<div class="col-3">
 		<Sidebar>

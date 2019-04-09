@@ -20,20 +20,20 @@ export default Component.extend({
 		upvote() {
 			if (!this.get('isUpvoted')) {
 				this.reddit.api.getSubmission(this.model.id).upvote()
-					.then(data => {
+					.then(() => {
 						this.set('model.likes', true);
 						this.notifications.success('Upvoted.');
 					})
-					.catch(err => {
+					.catch(() => {
 						this.notifications.error('Error.');
 					});
 			} else {
 				this.reddit.api.getSubmission(this.model.id).unvote()
-					.then(data => {
+					.then(() => {
 						this.set('model.likes', null);
 						this.notifications.success('Undid upvote.');
 					})
-					.catch(err => {
+					.catch(() => {
 						this.notifications.error('Error.');
 					});
 			}
@@ -41,20 +41,20 @@ export default Component.extend({
 		downvote() {
 			if (!this.get('isDownvoted')) {
 				this.reddit.api.getSubmission(this.model.id).downvote()
-					.then(data => {
+					.then(() => {
 						this.set('model.likes', false);
 						this.notifications.success('Downvoted.');
 					})
-					.catch(err => {
+					.catch(() => {
 						this.notifications.error('Error.');
 					});
 			} else {
 				this.reddit.api.getSubmission(this.model.id).unvote()
-					.then(data => {
+					.then(() => {
 						this.set('model.likes', null);
 						this.notifications.success('Undid downvote.');
 					})
-					.catch(err => {
+					.catch(() => {
 						this.notifications.error('Error.');
 					});
 			}
