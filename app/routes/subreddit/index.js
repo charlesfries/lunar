@@ -3,6 +3,10 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
 	reddit: service(),
+	beforeModel() {
+		let controller = this.controllerFor('subreddit');
+		controller.set('currentPost', null);
+	},
 	model() {
 		let { name } = this.paramsFor('subreddit');
 		return this.reddit.api.getSubreddit(name).getHot()

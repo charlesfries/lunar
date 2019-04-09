@@ -7,6 +7,14 @@ export default Route.extend({
 		let applicationController = this.controllerFor('application');
 		applicationController.set('currentSubreddit', name);
 		
-		return this.reddit.api.getSubreddit(name).fetch();
+		return this.reddit.api.getSubreddit(name).getHot()
+			.then(data => {
+				return data.map(post => {
+					post.author = Object.assign({}, post.author);
+					return post;
+				});
+			});
+		
+		// return this.reddit.api.getSubreddit(name).fetch();
 	}
 });
