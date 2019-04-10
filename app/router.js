@@ -13,7 +13,7 @@ Router.map(function() {
         this.route('all');
     });
     this.route('subreddit', { path: '/r/:name' }, function() {
-        this.route('post', { path: '/:id' });
+        this.route('post', { path: '/:id' }, function() {});
         this.route('create');
     });
     this.route('user', { path: '/u/:username' });

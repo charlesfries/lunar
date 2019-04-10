@@ -1,16 +1,18 @@
-#nprogress .bar {
-  background: $progress-color !important;
-}
+// font
 
-#nprogress .peg {
-  box-shadow: 0 0 10px $progress-color, 0 0 5px $progress-color !important;
-}
+// nprogress
 
-#nprogress .spinner-icon {
-  border-top-color: $progress-color !important;
-  border-left-color: $progress-color !important;
-}
-
-#nprogress .spinner-icon {
-  display: none !important;
+#nprogress {
+	.bar {
+		background: $progress-color !important;
+	}
+	.peg {
+		box-shadow: 0 0 10px $progress-color, 0 0 5px $progress-color !important;
+	}
+	.spinner-icon {
+		border-top-color: $progress-color !important;
+		border-left-color: $progress-color !important;
+	}.spinner-icon {
+		display: none !important;
+	}
 }
