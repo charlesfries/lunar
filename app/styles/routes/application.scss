@@ -5,11 +5,23 @@ body {
 }
 
 .main {
-	padding-top: 1em;
-	padding-bottom: 1em;
+	// padding-top: 1em;
+	// padding-bottom: 1em;
 }
 
 
+// scroll
+
+html {
+    height: 100% !important;
+		body {
+		    height: 100% !important;
+				
+				> .ember-view {
+					height: 100% !important;
+				}
+		}
+}
 
 
 
