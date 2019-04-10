@@ -1,6 +1,6 @@
 <div class="row">
-	<div class="{{unless currentPost "col-9" "col-4"}} pr-0">
-		<ScrollContainer>
+	<div class="{{unless currentPost "col-9" "col-4"}} px-0">
+		<ScrollContainer class="p-0">
 			<Posts @model={{model}} @active={{currentPost}} @onSelection={{action "goToPost"}} />
 		</ScrollContainer>
 	</div>
@@ -23,9 +23,7 @@
 	{{else}}
 		<div class="col-8 px-0">
 			<ScrollContainer>
-				<Panel>
-					{{outlet}}
-				</Panel>
+				{{outlet}}
 			</ScrollContainer>
 		</div>
 	{{/unless}}

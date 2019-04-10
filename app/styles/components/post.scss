@@ -1,14 +1,15 @@
 $padding: 0.5em;
-
+$selected-color: RGB(238, 238, 238);
 
 .post {
 	display: flex;
 	padding: $padding;
-	background: $background-light;
+	// background: $background-light;
 	border-bottom: 1px solid $line-color;
+	padding: 1em;
 	
 	&.active {
-		background: lightgreen;
+		background: $selected-color;
 	}
 	
 	&:first-child {

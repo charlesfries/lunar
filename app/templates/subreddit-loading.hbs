@@ -1,28 +1,32 @@
 <div class="row">
-	<div class="col-9">
-		<Panel class="p-3">
-			{{#content-placeholders as |placeholder|}}
-				{{placeholder.heading img=true}}
-				{{placeholder.text lines=2}}
-			{{/content-placeholders}}
-			<br>
-			{{#content-placeholders as |placeholder|}}
-				{{placeholder.heading img=true}}
-				{{placeholder.text lines=2}}
-			{{/content-placeholders}}
-			<br>
-			{{#content-placeholders as |placeholder|}}
-				{{placeholder.heading img=true}}
-				{{placeholder.text lines=2}}
-			{{/content-placeholders}}
-		</Panel>
+	<div class="col-9 pr-0">
+		<ScrollContainer>
+			<Panel class="p-3">
+				{{#content-placeholders as |placeholder|}}
+					{{placeholder.heading img=true}}
+					{{placeholder.text lines=2}}
+				{{/content-placeholders}}
+				<br>
+				{{#content-placeholders as |placeholder|}}
+					{{placeholder.heading img=true}}
+					{{placeholder.text lines=2}}
+				{{/content-placeholders}}
+				<br>
+				{{#content-placeholders as |placeholder|}}
+					{{placeholder.heading img=true}}
+					{{placeholder.text lines=2}}
+				{{/content-placeholders}}
+			</Panel>
+		</ScrollContainer>
 	</div>
-	<div class="col-3 pl-0 ml-0">
-		<Panel class="p-3">
-			{{#content-placeholders as |placeholder|}}
-				{{placeholder.heading img=true}}
-				{{placeholder.text lines=3}}
-			{{/content-placeholders}}
-		</Panel>
+	<div class="col-3 px-0">
+		<ScrollContainer>
+			<Panel class="p-3">
+				{{#content-placeholders as |placeholder|}}
+					{{placeholder.heading img=true}}
+					{{placeholder.text lines=3}}
+				{{/content-placeholders}}
+			</Panel>
+		</ScrollContainer>
 	</div>
 </div>
