@@ -1,5 +1,17 @@
 {{notification-container position="bottom-left"}}
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#">Features</a>
+        <a class="p-2 text-dark" href="#">Enterprise</a>
+        <a class="p-2 text-dark" href="#">Support</a>
+        <a class="p-2 text-dark" href="#">Pricing</a>
+      </nav>
+      <a class="btn btn-outline-primary" href="#">Sign up</a>
+    </div>
+
+<!--style="background-color:RGB(145, 90, 246);"-->
+<!-- <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-light">
 	{{#link-to "index" class="navbar-brand"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -39,10 +51,10 @@
 			</li>
 		</ul>
 	</div>
-</nav>
+</nav> -->
 
 <div class="container-fluid">
-	<div class="row h-100">
+	<div class="row">
 		{{#subreddit-list/table model=subreddits onTransition=(action "goToRoute") onSelection=(action "goToSubreddit")}}{{/subreddit-list/table}}
 		<div class="main col-10">
 			{{outlet}}

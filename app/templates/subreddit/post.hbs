@@ -24,10 +24,7 @@
 		<PostActions @model={{model}} @onComments={{action "goToPost"}} />
 	</section>
 	<section class="compose">
-		<div class="form-group">
-			<label for="comment">Comment</label>
-			<textarea class="form-control" id="comment" rows="4" placeholder="What are your thoughts?"></textarea>
-		</div>
+		<textarea class="form-control" rows="4" placeholder="What are your thoughts?"></textarea>
 		<button type="button" class="btn btn-sm btn-primary">Comment</button>
 	</section>
 	<Comments @model={{model.comments}} />

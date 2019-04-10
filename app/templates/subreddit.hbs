@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="{{unless currentPost "col-9" "col-4"}} p-0">
+	<div class="{{unless currentPost "col-9" "col-4"}} pr-0">
 		<ScrollContainer>
 			<Posts @model={{model}} @active={{currentPost}} @onSelection={{action "goToPost"}} />
 		</ScrollContainer>

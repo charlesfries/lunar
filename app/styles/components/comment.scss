@@ -1,14 +1,33 @@
 .comment {
-	border-left: 1px solid $line-color;
-	
-	.details {
-		margin-bottom: 0.3em;
-		color: $context-color;
+	display: flex;
+	margin-top: 1em;
+	.left {
+		display: flex;
+		flex-direction: column;
+		margin-right: 1em;
+		.item {
+			display: flex;
+			justify-content: center;
+			&:nth-child(3) { flex-grow: 1; }
+			.vl {
+				height: 100%;
+				width: 1px;
+				border-left: 1px solid $line-color;
+				margin-top: 0.3em;
+			}
+		}
 	}
-	.body {
-		
+	.right {
+		.context {
+			margin-bottom: 0.5em;
+			color: $context-color;
+		}
+		.body {
+			margin-bottom: 0.5em;
+		}
+		.actions {
+			margin-bottom: 0;
+			color: $context-color;
+		}
 	}
-	// &.collapsed .itself {
-	// 	display: none;
-	// }
 }
