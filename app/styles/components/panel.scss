@@ -1,29 +1,9 @@
 .panel {
-	position: relative;
-  top: 0;
-  height: calc(100vh - 48px);
-  padding-top: .5rem;
-  overflow-x: hidden;
-  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+	padding: 0.5em;
 	
-	
+	margin-bottom: 1em;
 	
 	border-radius: 0.3em;
 	border: 1px solid $line-color;
 	background: $background-light;
-	
-	&.sticky {
-		
-	}
-}
-
-.sidebar-sticky {
-  
-}
-
-@supports ((position: -webkit-sticky) or (position: sticky)) {
-  .sidebar-sticky {
-    position: -webkit-sticky;
-    position: sticky;
-  }
 }
