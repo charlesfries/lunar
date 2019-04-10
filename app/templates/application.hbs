@@ -1,32 +1,32 @@
 {{notification-container position="bottom-left"}}
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm">
-      <h5 class="my-0 font-weight-normal">{{#link-to "index" class="text-dark"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}</h5>
-			<nav class="my-2 my-md-0 mr-md-3">
-				<div class="btn-group ml-2" role="group">
-					{{#if currentFeed}}
-						<button type="button" class="btn btn-outline-warning">/{{currentFeed}}</button>
-						<button type="button" class="btn btn-outline-warning"><i class="fa fa-caret-down"></i></button>
-					{{/if}}
-					{{#if currentSubreddit}}
-						<button type="button" class="btn btn-outline-success" {{action "goToSubreddit" currentSubreddit}}>/{{formattedCurrentSubreddit}}</button>
-						<button type="button" class="btn btn-outline-success"><i class="fa fa-caret-down"></i></button>
-						<button type="button" class="btn btn-outline-success"><i class="fa fa-times"></i></button>
-						<button type="button" class="btn btn-outline-success">/hot</button>
-					{{/if}}
-					{{#if currentPost}}
-						<button type="button" class="btn btn-outline-info">/{{currentPost}}</button>
-						<button type="button" class="btn btn-outline-info"><i class="fa fa-times"></i></button>
-					{{/if}}
-				</div>
-      </nav>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Features</a>
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
-      </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
-    </div>
+	<h5 class="my-0 mr-4 font-weight-normal">{{#link-to "index" class="text-dark"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}</h5>
+	<nav class="my-2 my-md-0 mr-auto">
+		<div class="btn-group" role="group">
+			{{#if currentFeed}}
+			<button type="button" class="btn btn-outline-warning">/{{currentFeed}}</button>
+			<button type="button" class="btn btn-outline-warning"><i class="fa fa-caret-down"></i></button>
+			{{/if}}
+			{{#if currentSubreddit}}
+			<button type="button" class="btn btn-outline-success" {{action "goToSubreddit" currentSubreddit}}>/{{formattedCurrentSubreddit}}</button>
+			<button type="button" class="btn btn-outline-success"><i class="fa fa-caret-down"></i></button>
+			<button type="button" class="btn btn-outline-success"><i class="fa fa-times"></i></button>
+			<button type="button" class="btn btn-outline-success">/hot</button>
+			{{/if}}
+			{{#if currentPost}}
+			<button type="button" class="btn btn-outline-info">/{{currentPost}}</button>
+			<button type="button" class="btn btn-outline-info"><i class="fa fa-times"></i></button>
+			{{/if}}
+		</div>
+	</nav>
+	<nav class="my-2 my-md-0 mr-md-3">
+		<a class="p-2 text-dark" href="#">Features</a>
+		<a class="p-2 text-dark" href="#">Enterprise</a>
+		<a class="p-2 text-dark" href="#">Support</a>
+		<a class="p-2 text-dark" href="#">Pricing</a>
+	</nav>
+	<a class="btn btn-outline-primary" href="#">Sign up</a>
+</div>
 
 <!--style="background-color:RGB(145, 90, 246);"-->
 <!-- <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-light">
