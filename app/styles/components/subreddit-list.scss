@@ -47,8 +47,8 @@
 .sidebar-sticky {
   position: relative;
   top: 0;
-  height: calc(100vh - 56px);
-  padding-top: .5rem;
+  height: calc(100vh - #{$navbar-height});
+  // padding-top: .5rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
@@ -82,18 +82,4 @@
 .sidebar-heading {
   font-size: .75rem;
   text-transform: uppercase;
-}
-
-/*
- * Content
- */
-
-[role="main"] {
-  padding-top: 133px; /* Space for fixed navbar */
-}
-
-@media (min-width: 768px) {
-  [role="main"] {
-    padding-top: 48px; /* Space for fixed navbar */
-  }
 }
