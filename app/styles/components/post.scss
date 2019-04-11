@@ -1,30 +1,16 @@
-$padding: 0.5em;
-$selected-color: RGB(238, 238, 238);
-
 .post {
+	$padding: 0.5em;
+	
 	display: flex;
 	padding: $padding;
-	// background: $background-light;
 	border-bottom: 1px solid $line-color;
 	padding: 1em;
 	
-	&.active {
-		background: $selected-color;
-	}
-	
-	&:first-child {
-		border-top-left-radius: 0.3em;
-		border-top-right-radius: 0.3em;
-	}
-	
 	&:last-child {
-		border-bottom-left-radius: 0.3em;
-		border-bottom-right-radius: 0.3em;
 		border-bottom: none;
 	}
 	
 	.thumbnail {
-		// background: lightgrey;
 		img {
 			width: 5em;
 			border-radius: 0.2em;
@@ -33,5 +19,9 @@ $selected-color: RGB(238, 238, 238);
 	.content {
 		flex-grow: 1;
 		padding-left: $padding;
+	}
+	
+	&.active {
+		background: $selected-post-color;
 	}
 }
