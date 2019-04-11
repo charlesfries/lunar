@@ -8,6 +8,7 @@ export default Route.extend({
 	model() {
 		return this.reddit.api.getSubscriptions()
 			.then(subreddits => {
+				console.log(subreddits)
 				return subreddits.sort((a, b) => {
 					return a.display_name.localeCompare(b.display_name);
 				})

@@ -6,31 +6,26 @@
 	background-color: $foreground-color;
 	border-right: 1px solid $line-color;
 	
-	.subreddit {
-		display: flex;
-		margin-bottom: 1em;
-		.icon {
-			img {
-				border-radius: 50%;
-			}
-		}
-		.content {
-			padding-left: 0.5em;
-		}
-	}
-	
 	.sidebar-heading {
 		margin-top: 2em;
 		margin-bottom: 0;
 		font-size: .75rem;
 		text-transform: uppercase;
-	
 	}
 	
 	.nav-link {
+		padding-left: 0;
+		padding-right: 0;
 		font-weight: 500;
-		color: #333;
-		&:active { color: #007bff; }
+		color: $subreddit-list-text-color;
+		img {
+			width: 24px;
+			margin-right: 0.5em;
+		}
+		
+		
+		
+		&.active { color: $primary-color; }
 		
 		.feather {
 			margin-right: 4px;
