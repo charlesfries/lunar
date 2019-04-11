@@ -1,6 +1,7 @@
+$theme-color: rgb(145, 90, 246);
 $background-color: #f8f9fa;
 $foreground-color: white;
-$progress-color: rgb(145, 90, 246);
+$progress-color: $theme-color;
 
 // $background: rgb(219, 224, 229);
 // $background-light: white;
