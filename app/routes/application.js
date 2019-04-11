@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import nprogress from 'nprogress'
+import nprogress from 'nprogress';
 
 export default Route.extend({
 	reddit: service(),
