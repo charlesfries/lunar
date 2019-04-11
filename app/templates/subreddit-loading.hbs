@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-9 px-0">
-		<ScrollContainer class="p-3">
+		<ScrollContainer class="panel p-3">
 			{{#content-placeholders as |placeholder|}}
 				{{placeholder.heading img=true}}
 				{{placeholder.text lines=2}}
@@ -13,13 +13,11 @@
 		</ScrollContainer>
 	</div>
 	<div class="col-3 px-0">
-		<ScrollContainer>
-			<Sidebar>
-				{{#content-placeholders as |placeholder|}}
-					{{placeholder.heading img=true}}
-					{{placeholder.text lines=3}}
-				{{/content-placeholders}}
-			</Sidebar>
+		<ScrollContainer class="panel p-3">
+			{{#content-placeholders as |placeholder|}}
+				{{placeholder.heading img=true}}
+				{{placeholder.text lines=3}}
+			{{/content-placeholders}}
 		</ScrollContainer>
 	</div>
 </div>

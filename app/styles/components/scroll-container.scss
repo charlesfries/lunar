@@ -1,5 +1,5 @@
 .scroll-container {
-	height: calc(100vh - 101px);
+	height: calc(100vh - #{$navbar-height});
 	overflow-x: hidden;
 	overflow-y: auto;
 }

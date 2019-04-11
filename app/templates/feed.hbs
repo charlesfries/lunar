@@ -1,14 +1,12 @@
 <div class="row">
 	<div class="col-9 px-0">
-		<ScrollContainer>
+		<ScrollContainer class="panel">
 			{{outlet}}
 		</ScrollContainer>
 	</div>
 	<div class="col-3 px-0">
-		<ScrollContainer>
-			<Sidebar>
-				<h4>/{{currentFeed}}</h4>
-			</Sidebar>
+		<ScrollContainer class="panel p-3">
+			<h4>/{{currentFeed}}</h4>
 		</ScrollContainer>
 	</div>
 </div>
