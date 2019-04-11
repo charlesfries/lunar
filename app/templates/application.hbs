@@ -1,4 +1,3 @@
-
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm" style="-webkit-app-region:drag; position:relative; z-index:50;">
 	<h5 class="my-0 mr-4 font-weight-normal">{{#link-to "index" class="text-dark"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}</h5>
 	<nav class="mr-4">
@@ -34,7 +33,6 @@
 	<div class="row">
 		{{#subreddit-list/table model=subreddits onTransition=(action "goToRoute") onSelection=(action "goToSubreddit")}}{{/subreddit-list/table}}
 		<div class="col-10">
-			{{#modals/welcome isVisible=true}}{{/modals/welcome}}
 			{{outlet}}
 		</div>
 	</div>
@@ -44,5 +42,5 @@
 {{notification-container position="bottom-left"}}
 
 {{!-- modals --}}
-
+{{#modals/welcome isVisible=true}}{{/modals/welcome}}
 {{#modals/login isVisible=false}}{{/modals/login}}

@@ -9,9 +9,9 @@ export default Route.extend({
 		
 		return this.reddit.api.getSubreddit(name).getHot()
 			.then(posts => {
+				console.log(posts);
 				return posts.map(post => {
 					post.author = Object.assign({}, post.author);
-					console.log(post);
 					return post;
 				});
 			});
