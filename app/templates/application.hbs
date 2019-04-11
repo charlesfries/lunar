@@ -1,14 +1,14 @@
-{{notification-container position="bottom-left"}}
+
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm" style="-webkit-app-region:drag; position:relative; z-index:50;">
 	<h5 class="my-0 mr-4 font-weight-normal">{{#link-to "index" class="text-dark"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}</h5>
-	<nav class="my-2 my-md-0 mr-auto">
+	<nav class="mr-4">
 		<div class="btn-group" role="group">
 			{{#if currentFeed}}
 				<button type="button" class="btn btn-outline-primary">/{{currentFeed}}</button>
 				<button type="button" class="btn btn-outline-primary"><i class="fa fa-caret-down"></i></button>
 			{{/if}}
 			{{#if currentSubreddit}}
-				<button type="button" class="btn btn-outline-primary" {{action "goToSubreddit" currentSubreddit}}>/{{formattedCurrentSubreddit}}</button>
+				<button type="button" class="btn btn-outline-primary" {{action "goToSubreddit" currentSubreddit}}>/r/{{currentSubreddit}}</button>
 				<button type="button" class="btn btn-outline-primary"><i class="fa fa-caret-down"></i></button>
 				<button type="button" class="btn btn-outline-primary"><i class="fa fa-times"></i></button>
 				<button type="button" class="btn btn-outline-primary">/hot</button>
@@ -19,7 +19,10 @@
 			{{/if}}
 		</div>
 	</nav>
-	<nav class="my-2 my-md-0 mr-md-3">
+	<form class="form-inline mr-auto">
+		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	</form>
+	<nav class="mr-3">
 		<a class="p-2 text-dark" href="#">Moderation</a>
 		<a class="p-2 text-dark" href="#">Chat</a>
 		<a class="p-2 text-dark" href="#">Messages</a>
@@ -31,7 +34,15 @@
 	<div class="row">
 		{{#subreddit-list/table model=subreddits onTransition=(action "goToRoute") onSelection=(action "goToSubreddit")}}{{/subreddit-list/table}}
 		<div class="col-10">
+			{{#modals/welcome isVisible=true}}{{/modals/welcome}}
 			{{outlet}}
 		</div>
 	</div>
 </div>
+
+{{!-- notifications --}}
+{{notification-container position="bottom-left"}}
+
+{{!-- modals --}}
+
+{{#modals/login isVisible=false}}{{/modals/login}}

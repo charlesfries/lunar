@@ -1,10 +1,10 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
 	reddit: service(),
 	
+	isFirstLaunch: true,
 	authenticatedUser: null,
 	subreddits: null,
 	
@@ -19,12 +19,14 @@ export default Controller.extend({
 			favorites: ['Android', 'apple', 'bitcoin', 'CombatFootage', 'cringe', 'HailCorporate', 'HipHopHeads', 'howardstern', 'roadcam', 'technology', 'teslamotors', 'videos', 'wallstreetbets', 'worldnews'],
 			subscriptions: ['Android', 'apple', 'bitcoin', 'CombatFootage', 'cringe', 'HailCorporate', 'HipHopHeads', 'howardstern', 'roadcam', 'technology', 'videos']
 		});
+		
+		
+		
+		// setTimeout(() => {
+		// 	let launchedBefore = localStorage.get('launchedBefore');
+		// 	this.set('launchedBefore', !isFirstLaunch);
+		// }, 3000);
 	},
-	
-	formattedCurrentSubreddit: computed('currentSubreddit', function() {
-		return 'r/' + this.currentSubreddit;
-	}),
-	
 	actions: {
 		goToRoute(routeName) {
 			this.set('currentFeed', routeName);
