@@ -1,16 +1,36 @@
-<div class="comment">
-	<div class="inner ml-3">
-		<p class="details">
-			<a href="#" {{action "toggleCollapsed"}}><i class="fa fa-{{if model.collapsed "plus" "minus"}}"></i></a>
-			<span class="badge badge-secondary">{{model.author_flair_text}}</span>
-			{{#link-to "user" "charlesfries" class="font-weight-bold"}}{{model.author.name}}{{/link-to}}
-			{{score model.score}} points &middot; {{time-ago model.created}}
-		</p>
-		{{#unless model.collapsed}}
-			<p class="body">{{model.body}}</p>
-			{{#each model.replies as |comment|}}
-				<Comment @model={{comment}} />
-			{{/each}}
-		{{/unless}}
+<div class="left">
+	<div class="item">
+		<a href="#" class="text-dark"><i class="fa fa-arrow-up"></i></a>
 	</div>
+	<div class="item">
+		<a href="#" class="text-dark"><i class="fa fa-arrow-down"></i></a>
+	</div>
+	<div class="item">
+		<div class="vl"></div>
+	</div>
+</div>
+<div class="right">
+	<p class="context">
+		<a href="#" {{action "toggleCollapsed"}}>[{{if model.collapsed "+" "-"}}]</a>
+		<span class="badge badge-secondary">{{model.author_flair_text}}</span>
+		{{#link-to "user" model.author.name}}{{model.author.name}}{{/link-to}}
+		{{score model.score}} points &middot; {{time-ago model.created}}
+	</p>
+	{{#unless model.collapsed}}
+		<p class="body">{{model.body}}</p>
+		<p class="actions">
+			<a href="#"><i class="fa fa-comment"></i> Reply</a>
+			&middot;
+			<a href="#"><i class="fas fa-coins"></i> Give Award</a>
+			&middot;
+			<a href="#"><i class="fa fa-sync"></i> Share</a>
+			&middot;
+			<a href="#"><i class="fa fa-ban"></i> Save</a>
+			&middot;
+			<a href="#"><i class="fa fa-flag"></i> Report</a>
+		</p>
+		{{#each model.replies as |comment|}}
+			<Comment @model={{comment}} />
+		{{/each}}
+	{{/unless}}
 </div>

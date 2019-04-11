@@ -1,13 +1,13 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default Controller.extend({
 	reddit: service(),
 	
-	// defaultSubreddits: ['Home', 'Popular', 'All'],
+	isFirstLaunch: true,
 	authenticatedUser: null,
 	subreddits: null,
+	
 	currentFeed: null,
 	currentSubreddit: null,
 	currentPost: null,
@@ -15,20 +15,18 @@ export default Controller.extend({
 	init() {
 		this._super(...arguments);
 		this.set('authenticatedUser', 'charlesfries'); // @TODO
-		this.set('userSubreddits', ['apple', 'bitcoin', 'cringe', 'roadcam', 'technology', 'videos']);
-		// this.set('currentFeed', 'feeds.home');
-		
 		this.set('subreddits', {
-			// feeds: ['Home', 'Popular', 'All'],
-			favorites: ['apple', 'bitcoin', 'cringe', 'roadcam', 'technology', 'videos'],
-			subscriptions: ['apple', 'bitcoin', 'cringe', 'roadcam', 'technology', 'videos']
+			favorites: ['Android', 'apple', 'bitcoin', 'CombatFootage', 'cringe', 'HailCorporate', 'HipHopHeads', 'howardstern', 'roadcam', 'technology', 'teslamotors', 'videos', 'wallstreetbets', 'worldnews'],
+			subscriptions: ['Android', 'apple', 'bitcoin', 'CombatFootage', 'cringe', 'HailCorporate', 'HipHopHeads', 'howardstern', 'roadcam', 'technology', 'videos']
 		});
+		
+		
+		
+		// setTimeout(() => {
+		// 	let launchedBefore = localStorage.get('launchedBefore');
+		// 	this.set('launchedBefore', !isFirstLaunch);
+		// }, 3000);
 	},
-	
-	formattedCurrentSubreddit: computed('currentSubreddit', function() {
-		return 'r/' + this.currentSubreddit;
-	}),
-	
 	actions: {
 		goToRoute(routeName) {
 			this.set('currentFeed', routeName);
@@ -41,6 +39,13 @@ export default Controller.extend({
 			this.set('currentSubreddit', name);
 			this.set('currentPost', null);
 			this.transitionToRoute('subreddit', name);
+		},
+		popSubreddit() {
+			this.set('currentSubreddit', null);
+			this.set('currentPost', null);
+		},
+		popPost() {
+			this.set('currentPost', null);
 		}
 	}
 });

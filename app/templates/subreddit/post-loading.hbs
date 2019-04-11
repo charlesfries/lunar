@@ -1,8 +1,13 @@
 <div class="subreddit-post">
 	{{#content-placeholders as |placeholder|}}
+		{{placeholder.heading img=true}}
+		{{placeholder.text lines=3}}
+		<!-- {{placeholder.text lines=4}} -->
+	{{/content-placeholders}}
+	<!-- {{#content-placeholders as |placeholder|}}
 		{{placeholder.text lines=2}}
 		{{placeholder.text lines=1}}
 		{{placeholder.text lines=1}}
-	{{/content-placeholders}}
+	{{/content-placeholders}} -->
 </div>
 {{outlet}}

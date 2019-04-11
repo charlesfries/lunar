@@ -8,9 +8,10 @@ export default Route.extend({
 		controller.set('currentSubreddit', name);
 		
 		return this.reddit.api.getSubreddit(name).getHot()
-			.then(data => {
-				return data.map(post => {
+			.then(posts => {
+				return posts.map(post => {
 					post.author = Object.assign({}, post.author);
+					console.log(post);
 					return post;
 				});
 			});

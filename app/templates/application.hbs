@@ -1,51 +1,48 @@
-{{notification-container position="bottom-left"}}
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-	{{#link-to "index" class="navbar-brand"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav ml-2">
-			<li class="nav-item">
-				<div class="btn-group" role="group" aria-label="Basic example">
-					{{#if currentFeed}}
-						<button type="button" class="btn btn-outline-warning">/{{currentFeed}}</button>
-						<button type="button" class="btn btn-outline-warning"><i class="fa fa-caret-down"></i></button>
-					{{/if}}
-					{{#if currentSubreddit}}
-						<button type="button" class="btn btn-outline-success" {{action "goToSubreddit" currentSubreddit}}>/{{formattedCurrentSubreddit}}</button>
-						<button type="button" class="btn btn-outline-success"><i class="fa fa-caret-down"></i></button>
-						<button type="button" class="btn btn-outline-success"><i class="fa fa-times"></i></button>
-						<button type="button" class="btn btn-outline-success">/hot</button>
-					{{/if}}
-					{{#if currentPost}}
-						<button type="button" class="btn btn-outline-info">/{{currentPost}}</button>
-						<button type="button" class="btn btn-outline-info"><i class="fa fa-times"></i></button>
-					{{/if}}
-				</div>
-			</li>
-		</ul>
-		<ul class="navbar-nav ml-auto">
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					{{authenticatedUser}}
-				</a>
-				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#">Action</a>
-					<a class="dropdown-item" href="#">Another action</a>
-					<div class="dropdown-divider"></div>
-					<a class="dropdown-item" href="#">Something else here</a>
-				</div>
-			</li>
-		</ul>
-	</div>
-</nav>
 
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm" style="-webkit-app-region:drag; position:relative; z-index:50;">
+	<h5 class="my-0 mr-4 font-weight-normal">{{#link-to "index" class="text-dark"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}</h5>
+	<nav class="mr-4">
+		<div class="btn-group" role="group">
+			{{#if currentFeed}}
+				<button type="button" class="btn btn-outline-primary">/{{currentFeed}}</button>
+				<button type="button" class="btn btn-outline-primary"><i class="fa fa-caret-down"></i></button>
+			{{/if}}
+			{{#if currentSubreddit}}
+				<button type="button" class="btn btn-outline-primary" {{action "goToSubreddit" currentSubreddit}}>/r/{{currentSubreddit}}</button>
+				<button type="button" class="btn btn-outline-primary"><i class="fa fa-caret-down"></i></button>
+				<button type="button" class="btn btn-outline-primary" {{action "popSubreddit"}}><i class="fa fa-times"></i></button>
+				<button type="button" class="btn btn-outline-primary">/hot</button>
+			{{/if}}
+			{{#if currentPost}}
+				<button type="button" class="btn btn-outline-primary">/{{currentPost}}</button>
+				<button type="button" class="btn btn-outline-primary" {{action "popPost"}}><i class="fa fa-times"></i></button>
+			{{/if}}
+		</div>
+	</nav>
+	<form class="form-inline mr-auto">
+		<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+	</form>
+	<nav class="mr-3">
+		<a class="p-2 text-dark" href="#">Moderation</a>
+		<a class="p-2 text-dark" href="#">Chat</a>
+		<a class="p-2 text-dark" href="#">Messages</a>
+		<a class="p-2 text-dark" href="#">Create Post</a>
+	</nav>
+	<a class="btn btn-outline-primary" href="#">{{authenticatedUser}}</a>
+</div>
 <div class="container-fluid">
 	<div class="row">
 		{{#subreddit-list/table model=subreddits onTransition=(action "goToRoute") onSelection=(action "goToSubreddit")}}{{/subreddit-list/table}}
-		<div class="main col-10">
+		<div class="col-10">
+			{{#modals/welcome isVisible=true}}{{/modals/welcome}}
 			{{outlet}}
 		</div>
 	</div>
 </div>
+
+{{!-- notifications --}}
+{{notification-container position="bottom-left"}}
+
+{{!-- modals --}}
+
+{{#modals/login isVisible=false}}{{/modals/login}}

@@ -1,11 +1,14 @@
 <div class="row">
-	<div class="col-9">
-		{{outlet}}
+	<div class="col-9 px-0">
+		<ScrollContainer>
+			{{outlet}}
+		</ScrollContainer>
 	</div>
-	<div class="col-3 pl-0 ml-0">
-		<Sidebar>
-			Feed Sidebar<br>
-			Test
-		</Sidebar>
+	<div class="col-3 px-0">
+		<ScrollContainer>
+			<Sidebar>
+				Feed
+			</Sidebar>
+		</ScrollContainer>
 	</div>
 </div>
