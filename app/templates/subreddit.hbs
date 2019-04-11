@@ -8,12 +8,12 @@
 		<div class="col-3 pl-0">
 			<ScrollContainer>
 				{{#unless currentPost}}
-					<div class="p-3">
+					<Sidebar>
 						<h4>r/{{!model.display_name}}</h4>
 						<h6>Subscribers: {{!model.subscribers}}</h6>
 						<h6>Online: {{!model.active_user_count}}</h6>
 						<p>{{!model.public_description}}</p>
-					</div>
+					</Sidebar>
 				{{else}}
 					{{outlet}}
 				{{/unless}}
