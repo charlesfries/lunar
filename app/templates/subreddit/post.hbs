@@ -21,11 +21,19 @@
 		{{/if}}
 	</section>
 	<section class="actions">
+		<div class="btn-group btn-group-sm" role="group">
+			<button type="button" class="btn btn-outline-primary">0 comments</button>
+			<button type="button" class="btn btn-outline-primary">Give Award</button>
+			<button type="button" class="btn btn-outline-primary">Share</button>
+			<button type="button" class="btn btn-outline-primary">Save</button>
+			<button type="button" class="btn btn-outline-primary">Hide</button>
+			<button type="button" class="btn btn-outline-primary">Report</button>
+		</div>
 		<PostActions @model={{model}} @onComments={{action "goToPost"}} />
 	</section>
 	<section class="compose">
 		<textarea class="form-control" rows="4" placeholder="What are your thoughts?"></textarea>
-		<button type="button" class="btn btn-sm btn-primary">Comment</button>
+		<button type="button" class="btn btn-sm btn-outline-primary">Comment</button>
 	</section>
 	<Comments @model={{model.comments}} />
 </div>
