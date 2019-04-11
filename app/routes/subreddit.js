@@ -15,7 +15,8 @@ export default Route.extend({
 					post.author = Object.assign({}, post.author);
 					return post;
 				});
-			});
+			})
+			.catch(() => { this.notifications.error('Couldn\'t fetch subreddit'); });
 	},
 	
 	setupController(controller, model) {
@@ -24,6 +25,7 @@ export default Route.extend({
 		this.reddit.api.getSubreddit(this.name).fetch()
 			.then(data => {
 				controller.set('subredditInfo', data);
-			});
+			})
+			.catch(() => {});
 	}
 });

@@ -4,6 +4,7 @@ import nprogress from 'nprogress';
 
 export default Route.extend({
 	reddit: service(),
+	notifications: service('notification-messages'),
 	
 	model() {
 		return this.reddit.api.getSubscriptions()
@@ -12,7 +13,8 @@ export default Route.extend({
 				return subreddits.sort((a, b) => {
 					return a.display_name.localeCompare(b.display_name);
 				})
-			});
+			})
+			.catch(() => { this.notifications.error('Couldn\'t fetch subscriptions'); });
 	},
 	
 	actions: {
