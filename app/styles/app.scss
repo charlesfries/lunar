@@ -1,14 +1,9 @@
-@import "config";
+$navbar-height: 71px;
+
 @import "colors";
 @import "overrides";
 
 @import "components/_all";
 @import "routes/_all";
-
-
-.no-padding {
-   padding: 0 !important;
-   margin: 0 !important;
-}
 
 @import "ember-content-placeholders";
