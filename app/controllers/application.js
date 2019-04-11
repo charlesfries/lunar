@@ -5,9 +5,9 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
 	reddit: service(),
 	
-	// defaultSubreddits: ['Home', 'Popular', 'All'],
 	authenticatedUser: null,
 	subreddits: null,
+	
 	currentFeed: null,
 	currentSubreddit: null,
 	currentPost: null,
@@ -15,13 +15,9 @@ export default Controller.extend({
 	init() {
 		this._super(...arguments);
 		this.set('authenticatedUser', 'charlesfries'); // @TODO
-		this.set('userSubreddits', ['apple', 'bitcoin', 'cringe', 'roadcam', 'technology', 'videos']);
-		// this.set('currentFeed', 'feeds.home');
-		
 		this.set('subreddits', {
-			// feeds: ['Home', 'Popular', 'All'],
-			favorites: ['apple', 'bitcoin', 'cringe', 'roadcam', 'technology', 'videos'],
-			subscriptions: ['apple', 'bitcoin', 'cringe', 'roadcam', 'technology', 'videos']
+			favorites: ['Android', 'apple', 'bitcoin', 'CombatFootage', 'cringe', 'HailCorporate', 'HipHopHeads', 'howardstern', 'roadcam', 'technology', 'teslamotors', 'videos', 'wallstreetbets', 'worldnews'],
+			subscriptions: ['Android', 'apple', 'bitcoin', 'CombatFootage', 'cringe', 'HailCorporate', 'HipHopHeads', 'howardstern', 'roadcam', 'technology', 'videos']
 		});
 	},
 	

@@ -2,7 +2,7 @@
 	height: calc(100vh - #{$navbar-height});
 	overflow-x: hidden;
 	overflow-y: auto;
-	padding-top: 1em;
+	padding: 1em;
 	background-color: $foreground-color;
 	border-right: 1px solid $line-color;
 	
@@ -20,8 +20,11 @@
 	}
 	
 	.sidebar-heading {
+		margin-top: 2em;
+		margin-bottom: 0;
 		font-size: .75rem;
 		text-transform: uppercase;
+	
 	}
 	
 	.nav-link {
