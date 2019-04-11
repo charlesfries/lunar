@@ -1,6 +1,6 @@
 <div class="route-subreddit row">
 	<div class="{{unless parent.currentPost "col-9" "col-4"}} px-0">
-		<div class="panel">
+		<ScrollContainer class="panel">
 			<div class="d-flex flex-column flex-md-row align-items-center p-2 bg-white border-bottom">
 				<nav>
 					<div class="btn-group btn-group-sm" role="group">
@@ -10,33 +10,29 @@
 					<button type="button" class="btn btn-sm btn-outline-primary">/hot</button>
 				</nav>
 			</div>
-			<ScrollContainer>
-				<Posts @model={{model}} @active={{parent.currentPost}} @onSelection={{action "goToPost"}} />
-			</ScrollContainer>
-		</div>
+			<Posts @model={{model}} @active={{parent.currentPost}} @onSelection={{action "goToPost"}} />
+		</ScrollContainer>
 	</div>
-	{{#unless parent.currentPost}}
-		<div class="col-3 px-0">
-			<ScrollContainer class="panel">
-				{{#unless parent.currentPost}}
-					<Sidebar>
-						<h4>r/{{subredditInfo.display_name}}</h4>
-						<h6>Subscribers: {{subredditInfo.subscribers}}</h6>
-						<h6>Online: {{subredditInfo.active_user_count}}</h6>
-						<p>{{subredditInfo.public_description}}</p>
-						<button type="button" class="btn btn-block btn-outline-primary">Subscribe</button>
-						<button type="button" class="btn btn-block btn-outline-primary">Create Post</button>
-					</Sidebar>
-				{{else}}
-					{{outlet}}
-				{{/unless}}
-			</ScrollContainer>
-		</div>
-	{{else}}
+	{{#if parent.currentPost}}
 		<div class="col-8 px-0">
 			<ScrollContainer class="panel">
 				{{outlet}}
 			</ScrollContainer>
 		</div>
-	{{/unless}}
+	{{else}}
+		<div class="col-3 px-0">
+			<ScrollContainer class="panel p-3">
+				{{#unless parent.currentPost}}
+					<h4>r/{{subredditInfo.display_name}}</h4>
+					<h6>Subscribers: {{subredditInfo.subscribers}}</h6>
+					<h6>Online: {{subredditInfo.active_user_count}}</h6>
+					<p>{{subredditInfo.public_description}}</p>
+					<button type="button" class="btn btn-block btn-outline-primary">Subscribe</button>
+					<button type="button" class="btn btn-block btn-outline-primary">Create Post</button>
+				{{else}}
+					{{outlet}}
+				{{/unless}}
+			</ScrollContainer>
+		</div>
+	{{/if}}
 </div>
