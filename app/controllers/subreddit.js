@@ -1,7 +1,7 @@
-import Controller from '@ember/controller';
+import Controller, { inject } from '@ember/controller';
 
 export default Controller.extend({
-	currentPost: null,
+	applicationController: inject('application'),
 	actions: {
 		goToPost(name, id) {
 			this.set('currentPost', id);
