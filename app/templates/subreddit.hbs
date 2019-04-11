@@ -9,10 +9,12 @@
 			<ScrollContainer>
 				{{#unless parent.currentPost}}
 					<Sidebar>
-						<h4>r/{{!model.display_name}}</h4>
-						<h6>Subscribers: {{!model.subscribers}}</h6>
-						<h6>Online: {{!model.active_user_count}}</h6>
-						<p>{{!model.public_description}}</p>
+						<h4>r/{{subredditInfo.display_name}}</h4>
+						<h6>Subscribers: {{subredditInfo.subscribers}}</h6>
+						<h6>Online: {{subredditInfo.active_user_count}}</h6>
+						<p>{{subredditInfo.public_description}}</p>
+						<button type="button" class="btn btn-block btn-outline-primary">Subscribe</button>
+						<button type="button" class="btn btn-block btn-outline-primary">Create Post</button>
 					</Sidebar>
 				{{else}}
 					{{outlet}}
