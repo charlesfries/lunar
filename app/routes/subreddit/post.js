@@ -8,14 +8,41 @@ export default Route.extend({
 		let controller = this.controllerFor('application');
 		controller.set('currentPost', id);
 		
-		let controller1 = this.controllerFor('subreddit');
-		controller1.set('currentPost', id);
+		let subredditController = this.controllerFor('subreddit');
+		subredditController.set('currentPost', id);
+		
+		
+		// setTimeout(() => {
+		// 
+		// 
+		// 	this.reddit.api.getSubmission(id).expandReplies({limit: Infinity, depth: Infinity})
+		// 		.then(data => {
+		// 			console.log('SUCCESS', data);
+		// 			return data;
+		// 		})
+		// 		.catch(e => {
+		// 			console.log('FAIL', e)
+		// 		})
+		// }, 5000);
+		
+		
+		
 		
 		return this.reddit.api.getSubmission(id).fetch()
 			.then(data => {
-				
-				data.author = Object.assign({}, data.author)
-				// console.log('Post', data);
+				data.author = Object.assign({}, data.author);
+				data.comments = [];
+				return data;
+			});
+	},
+	
+	setupController(controller, model) {
+		controller.set('model', model);
+		let { id } = this.paramsFor('subreddit.post');
+		
+		this.reddit.api.getSubmission(id).fetch()
+			.then(data => {
+				data.author = Object.assign({}, data.author);
 				
 				function unwrapReplies(root) {
 					return root.replies
@@ -29,10 +56,10 @@ export default Route.extend({
 				data.comments
 					.map(comment => {
 						comment.author = Object.assign({}, comment.author);
-						comment.comments = unwrapReplies(comment)
+						comment.comments = unwrapReplies(comment);
 					});
 				
-				return data;
+				controller.set('model.comments', data.comments);
 			});
 	}
 });

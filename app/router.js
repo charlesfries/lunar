@@ -12,10 +12,7 @@ Router.map(function() {
         this.route('popular');
         this.route('all');
     });
-    this.route('subreddit', { path: '/r/:name' }, function() {
-        this.route('post', { path: '/:id' }, function() {});
-        this.route('create');
-    });
+    this.route('subreddit', { path: '/r/:name' });
     this.route('user', { path: '/u/:username' });
 });
 
