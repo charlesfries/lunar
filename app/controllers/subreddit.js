@@ -1,7 +1,7 @@
 import Controller, { inject } from '@ember/controller';
 
 export default Controller.extend({
-	applicationController: inject('application'),
+	parent: inject('application'),
 	actions: {
 		goToPost(name, id) {
 			this.set('currentPost', id);
