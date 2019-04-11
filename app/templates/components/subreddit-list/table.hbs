@@ -1,4 +1,5 @@
 <input class="form-control form-control-sm" type="text" placeholder="Filter">
 {{#subreddit-list/group title="Feeds" model=model.feeds isStatic=true onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}}
-{{#subreddit-list/group title="Favorites" model=model.favorites onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}}
-{{#subreddit-list/group title="Subscriptions" model=model.subscriptions onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}}
+<!-- {{#subreddit-list/group title="Favorites" model=model.favorites onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}} -->
+{{#subreddit-list/group title="Subscriptions" model=api onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}}
+<!-- {{#subreddit-list/group title="Subscriptions" model=model.subscriptions onTransition=(action onTransition) onSelection=(action onSelection)}}{{/subreddit-list/group}} -->

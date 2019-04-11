@@ -31,7 +31,7 @@
 </div>
 <div class="container-fluid">
 	<div class="row">
-		{{#subreddit-list/table model=subreddits onTransition=(action "goToRoute") onSelection=(action "goToSubreddit")}}{{/subreddit-list/table}}
+		{{#subreddit-list/table api=model model=subreddits onTransition=(action "goToRoute") onSelection=(action "goToSubreddit")}}{{/subreddit-list/table}}
 		<div class="col-10">
 			{{outlet}}
 		</div>

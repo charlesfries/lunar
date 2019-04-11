@@ -6,7 +6,12 @@ export default Route.extend({
 	reddit: service(),
 	
 	model() {
-		return this.reddit.api.getMe();
+		return this.reddit.api.getSubscriptions()
+			.then(subreddits => {
+				return subreddits.sort((a, b) => {
+					return a.display_name.localeCompare(b.display_name);
+				})
+			});
 	},
 	
 	actions: {
