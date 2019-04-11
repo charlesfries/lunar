@@ -5,6 +5,7 @@
 #nprogress {
 	.bar {
 		background: $progress-color !important;
+		height: 3px !important;
 	}
 	.peg {
 		box-shadow: 0 0 10px $progress-color, 0 0 5px $progress-color !important;
