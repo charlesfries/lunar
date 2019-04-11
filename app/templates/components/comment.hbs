@@ -11,8 +11,7 @@
 </div>
 <div class="right">
 	<p class="context">
-		<a href="#" {{action "toggleCollapsed"}}><i class="fa fa-{{if model.collapsed "plus" "minus"}}"></i></a>
-		&middot;
+		<a href="#" {{action "toggleCollapsed"}}>[{{if model.collapsed "+" "-"}}]</a>
 		<span class="badge badge-secondary">{{model.author_flair_text}}</span>
 		{{#link-to "user" model.author.name}}{{model.author.name}}{{/link-to}}
 		{{score model.score}} points &middot; {{time-ago model.created}}

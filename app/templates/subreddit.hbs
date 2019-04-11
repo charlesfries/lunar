@@ -1,23 +1,22 @@
 <div class="row">
 	<div class="{{unless currentPost "col-9" "col-4"}} px-0">
-		<ScrollContainer class="p-0">
+		<ScrollContainer>
 			<Posts @model={{model}} @active={{currentPost}} @onSelection={{action "goToPost"}} />
 		</ScrollContainer>
 	</div>
 	{{#unless currentPost}}
 		<div class="col-3 pl-0">
 			<ScrollContainer>
-				<Panel>
-					{{#unless currentPost}}
-						<!-- <Sidebar></Sidebar> -->
+				{{#unless currentPost}}
+					<div class="p-3">
 						<h4>r/{{!model.display_name}}</h4>
 						<h6>Subscribers: {{!model.subscribers}}</h6>
 						<h6>Online: {{!model.active_user_count}}</h6>
 						<p>{{!model.public_description}}</p>
-					{{else}}
-						{{outlet}}
-					{{/unless}}
-				</Panel>
+					</div>
+				{{else}}
+					{{outlet}}
+				{{/unless}}
 			</ScrollContainer>
 		</div>
 	{{else}}
