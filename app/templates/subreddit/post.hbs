@@ -9,7 +9,7 @@
 			</p>
 			<h5 class="title">{{model.title}}</h5>
 			{{#unless model.is_self}}
-				<p><a href={{model.url}} target="_blank" rel="noopener">{{url-helper model.url}}</a></p>
+				<p><a href={{model.url}} target="_blank" rel="noopener">{{url model.url}}</a></p>
 			{{/unless}}
 		</div>
 	</section>
