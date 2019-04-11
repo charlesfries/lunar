@@ -39,6 +39,13 @@ export default Controller.extend({
 			this.set('currentSubreddit', name);
 			this.set('currentPost', null);
 			this.transitionToRoute('subreddit', name);
+		},
+		popSubreddit() {
+			this.set('currentSubreddit', null);
+			this.set('currentPost', null);
+		},
+		popPost() {
+			this.set('currentPost', null);
 		}
 	}
 });

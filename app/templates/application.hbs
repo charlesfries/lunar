@@ -10,12 +10,12 @@
 			{{#if currentSubreddit}}
 				<button type="button" class="btn btn-outline-primary" {{action "goToSubreddit" currentSubreddit}}>/r/{{currentSubreddit}}</button>
 				<button type="button" class="btn btn-outline-primary"><i class="fa fa-caret-down"></i></button>
-				<button type="button" class="btn btn-outline-primary"><i class="fa fa-times"></i></button>
+				<button type="button" class="btn btn-outline-primary" {{action "popSubreddit"}}><i class="fa fa-times"></i></button>
 				<button type="button" class="btn btn-outline-primary">/hot</button>
 			{{/if}}
 			{{#if currentPost}}
-				<button type="button" class="btn btn-outline-info">/{{currentPost}}</button>
-				<button type="button" class="btn btn-outline-info"><i class="fa fa-times"></i></button>
+				<button type="button" class="btn btn-outline-primary">/{{currentPost}}</button>
+				<button type="button" class="btn btn-outline-primary" {{action "popPost"}}><i class="fa fa-times"></i></button>
 			{{/if}}
 		</div>
 	</nav>
