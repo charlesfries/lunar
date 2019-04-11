@@ -1,12 +1,23 @@
 <div class="row">
 	<div class="{{unless parent.currentPost "col-9" "col-4"}} px-0">
-		<ScrollContainer>
-			<Posts @model={{model}} @active={{parent.currentPost}} @onSelection={{action "goToPost"}} />
-		</ScrollContainer>
+		<div class="panel">
+			<div class="d-flex flex-column flex-md-row align-items-center p-2 bg-white border-bottom">
+				<nav>
+					<div class="btn-group btn-group-sm" role="group">
+						<button type="button" class="btn btn-outline-primary"><i class="fa fa-times"></i></button>
+						<button type="button" class="btn btn-outline-primary">r/apple</button>
+					</div>
+					<button type="button" class="btn btn-sm btn-outline-primary">/hot</button>
+				</nav>
+			</div>
+			<ScrollContainer>
+				<Posts @model={{model}} @active={{parent.currentPost}} @onSelection={{action "goToPost"}} />
+			</ScrollContainer>
+		</div>
 	</div>
 	{{#unless parent.currentPost}}
 		<div class="col-3 px-0">
-			<ScrollContainer>
+			<ScrollContainer class="panel">
 				{{#unless parent.currentPost}}
 					<Sidebar>
 						<h4>r/{{subredditInfo.display_name}}</h4>
@@ -23,7 +34,7 @@
 		</div>
 	{{else}}
 		<div class="col-8 px-0">
-			<ScrollContainer>
+			<ScrollContainer class="panel">
 				{{outlet}}
 			</ScrollContainer>
 		</div>

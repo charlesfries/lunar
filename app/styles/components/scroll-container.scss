@@ -1,14 +1,5 @@
 .scroll-container {
-	
-	
-	.inner-container {
-		background-color: $foreground-color;
-		border-left: 1px solid $line-color;
-		border-right: 1px solid $line-color;
-		
-		height: calc(100vh - 101px);
-		overflow-x: hidden;
-		overflow-y: auto;
-		margin-left: 1em;
-	}
+	height: calc(100vh - 101px);
+	overflow-x: hidden;
+	overflow-y: auto;
 }
