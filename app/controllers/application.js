@@ -19,7 +19,7 @@ export default Controller.extend({
 	
 	showIntroduction() {
 		let launchedBefore = localStorage.getItem('launchedBefore');
-		if (!launchedBefore) {
+		if (true || !launchedBefore) {
 			localStorage.setItem('launchedBefore', true);
 			setTimeout(() => {
 				$('#welcomeModal').modal('show');
@@ -43,6 +43,9 @@ export default Controller.extend({
 				currentPost: null
 			});
 			this.transitionToRoute('subreddit', name);
+		},
+		showLogin() {
+			$('#loginModal').modal('show');
 		},
 		popSubreddit() {
 			this.setProperties({

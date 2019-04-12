@@ -27,7 +27,7 @@
 		<a class="p-2 text-dark" href="#">Messages</a>
 		<a class="p-2 text-dark" href="#">Create Post</a>
 	</nav>
-	<a class="btn btn-outline-primary" href="#">{{authenticatedUser}}</a>
+	<a class="btn btn-outline-primary" href="#" {{action "showLogin"}}>{{authenticatedUser}}</a>
 </div>
 <div class="container-fluid">
 	<div class="row">
@@ -42,5 +42,18 @@
 {{notification-container position="bottom-left"}}
 
 {{!-- modals --}}
+<Modal @title="Welcome" @confirmTitle="Okay" @myId="welcomeModal">
+	<p>Welcome to {{config "APP.name"}}!</p>
+</Modal>
+<Modal @title="Login" @confirmTitle="Login" @myId="loginModal">
+	<form>
+		<div class="form-group">
+			<input type="username" placeholder="Username" class="form-control" value={{username}}>
+		</div>
+		<div class="form-group mb-0">
+			<input type="password" placeholder="Password" class="form-control" value={{password}}>
+		</div>
+	</form>
+</Modal>
 {{#modals/welcome-comp}}{{/modals/welcome-comp}}
 {{#modals/login isVisible=false}}{{/modals/login}}
