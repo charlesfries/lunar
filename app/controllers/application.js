@@ -19,7 +19,7 @@ export default Controller.extend({
 	
 	showIntroduction() {
 		let launchedBefore = localStorage.getItem('launchedBefore');
-		if (true || !launchedBefore) {
+		if (!launchedBefore) {
 			localStorage.setItem('launchedBefore', true);
 			setTimeout(() => {
 				$('#welcomeModal').modal('show');

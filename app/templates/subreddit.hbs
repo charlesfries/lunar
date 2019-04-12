@@ -7,7 +7,18 @@
 						<button type="button" class="btn btn-outline-primary"><i class="fa fa-times"></i></button>
 						<button type="button" class="btn btn-outline-primary">r/apple</button>
 					</div>
-					<button type="button" class="btn btn-sm btn-outline-primary">/hot</button>
+					<div class="dropdown d-inline">
+						<button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+							/hot
+						</button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#">Hot</a>
+							<a class="dropdown-item" href="#">New</a>
+							<a class="dropdown-item" href="#">Controversial</a>
+							<a class="dropdown-item" href="#">Top</a>
+							<a class="dropdown-item" href="#">Rising</a>
+						</div>
+					</div>
 				</nav>
 			</div>
 			<Posts @model={{model}} @active={{parent.currentPost}} @onSelection={{action "goToPost"}} />
@@ -23,12 +34,11 @@
 		<div class="col-3 px-0">
 			<ScrollContainer class="panel p-3">
 				{{#unless parent.currentPost}}
+					<!-- style="color:{{if subredditInfo.banner_background_color subredditInfo.banner_background_color "black"}}" -->
 					<h4>r/{{subredditInfo.display_name}}</h4>
 					<h6>Subscribers: {{number subredditInfo.subscribers}}</h6>
 					<h6>Online: {{number subredditInfo.active_user_count}}</h6>
 					<p>{{subredditInfo.public_description}}</p>
-					<h6>Rules</h6>
-					<p></p>
 					<button type="button" class="btn btn-block btn-outline-primary">Subscribe</button>
 					<button type="button" class="btn btn-block btn-outline-primary">Create Post</button>
 				{{else}}

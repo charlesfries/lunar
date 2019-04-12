@@ -9,7 +9,7 @@ export default Route.extend({
 		let controller = this.controllerFor('application');
 		controller.set('currentSubreddit', name);
 		
-		return this.reddit.api.getSubreddit(name).getHot()
+		return this.reddit.api.getSubreddit(name).getNew()
 			.then(posts => {
 				return posts.map(post => {
 					post.author = Object.assign({}, post.author);
