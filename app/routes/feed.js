@@ -9,7 +9,6 @@ export default Route.extend({
 		controller.set('currentFeed', name);
 		
 		let api = this.reddit.api;
-		console.log('went')
 		if (name === 'home') {
 			return api.getHot()
 				.then(data => {
@@ -19,14 +18,11 @@ export default Route.extend({
 					});
 				});
 		} else if (name === 'popular') {
-			
-			api.r._get({uri: 'r/snoowrap/about/moderators'})
-				.then(data => {
-					console.log(data);
-					return data;
-				});
-			
-			
+			// api.r._get({uri: 'r/snoowrap/about/moderators'})
+			// 	.then(data => {
+			// 		console.log(data);
+			// 		return data;
+			// 	});
 			return api.getHot()
 				.then(data => {
 					return data.map(post => {
@@ -35,7 +31,8 @@ export default Route.extend({
 					});
 				});
 		} else {
-			return api.getSubreddit('popular').fetch()
+			return api.getHot()
+			// return api.getSubreddit('popular').fetch()
 				.then(data => {
 					return data.map(post => {
 						post.author = Object.assign({}, post.author);
