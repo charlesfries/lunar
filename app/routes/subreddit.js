@@ -9,14 +9,17 @@ export default Route.extend({
 		let controller = this.controllerFor('application');
 		controller.set('currentSubreddit', name);
 		
-		return this.reddit.api.getSubreddit(name).getNew()
-			.then(posts => {
-				return posts.map(post => {
-					post.author = Object.assign({}, post.author);
-					return post;
-				});
-			})
+		return this.reddit.api.getSubreddit(this.name).fetch()
 			.catch(() => { this.notifications.error('Couldn\'t fetch subreddit'); });
+		
+		// return this.reddit.api.getSubreddit(name).getNew()
+		// 	.then(posts => {
+		// 		return posts.map(post => {
+		// 			post.author = Object.assign({}, post.author);
+		// 			return post;
+		// 		});
+		// 	})
+		// 	.catch(() => { this.notifications.error('Couldn\'t fetch subreddit'); });
 	},
 	
 	setupController(controller, model) {

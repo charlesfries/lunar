@@ -1,50 +1,18 @@
 <div class="route-subreddit row">
-	<div class="{{unless parent.currentPost "col-9" "col-4"}} px-0">
+	<div class="col-9 px-0">
 		<ScrollContainer class="panel">
-			<div class="d-flex flex-column flex-md-row align-items-center p-2 bg-white border-bottom">
-				<nav>
-					<div class="btn-group btn-group-sm" role="group">
-						<button type="button" class="btn btn-outline-primary"><i class="fa fa-times"></i></button>
-						<button type="button" class="btn btn-outline-primary">r/apple</button>
-					</div>
-					<div class="dropdown d-inline">
-						<button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
-							/hot
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							<a class="dropdown-item" href="#">Hot</a>
-							<a class="dropdown-item" href="#">New</a>
-							<a class="dropdown-item" href="#">Controversial</a>
-							<a class="dropdown-item" href="#">Top</a>
-							<a class="dropdown-item" href="#">Rising</a>
-						</div>
-					</div>
-				</nav>
-			</div>
-			<Posts @model={{model}} @active={{parent.currentPost}} @onSelection={{action "goToPost"}} />
+			{{outlet}}
 		</ScrollContainer>
 	</div>
-	{{#if parent.currentPost}}
-		<div class="col-8 px-0">
-			<ScrollContainer class="panel">
-				{{outlet}}
-			</ScrollContainer>
-		</div>
-	{{else}}
-		<div class="col-3 px-0">
-			<ScrollContainer class="panel p-3">
-				{{#unless parent.currentPost}}
-					<!-- style="color:{{if subredditInfo.banner_background_color subredditInfo.banner_background_color "black"}}" -->
-					<h4>r/{{subredditInfo.display_name}}</h4>
-					<h6>Subscribers: {{number subredditInfo.subscribers}}</h6>
-					<h6>Online: {{number subredditInfo.active_user_count}}</h6>
-					<p>{{subredditInfo.public_description}}</p>
-					<button type="button" class="btn btn-block btn-outline-primary">Subscribe</button>
-					<button type="button" class="btn btn-block btn-outline-primary">Create Post</button>
-				{{else}}
-					{{outlet}}
-				{{/unless}}
-			</ScrollContainer>
-		</div>
-	{{/if}}
+	<div class="col-3 px-0">
+		<ScrollContainer class="panel p-3">
+			<!-- style="color:{{if subredditInfo.banner_background_color subredditInfo.banner_background_color "black"}}" -->
+			<h4>r/{{model.display_name}}</h4>
+			<h6>Subscribers: {{number model.subscribers}}</h6>
+			<h6>Online: {{number model.active_user_count}}</h6>
+			<p>{{model.public_description}}</p>
+			<button type="button" class="btn btn-block btn-outline-primary">Subscribe</button>
+			<button type="button" class="btn btn-block btn-outline-primary">Create Post</button>
+		</ScrollContainer>
+	</div>
 </div>
