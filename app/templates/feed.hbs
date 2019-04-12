@@ -10,7 +10,7 @@
 					<button type="button" class="btn btn-sm btn-outline-primary">/hot</button>
 				</nav>
 			</div>
-			{{outlet}}
+			<Posts @model={{model}} @onSelection={{action "goToPost"}} />
 		</ScrollContainer>
 	</div>
 	<div class="col-3 px-0">

@@ -28,13 +28,13 @@ export default Controller.extend({
 	},
 	
 	actions: {
-		goToRoute(routeName) {
+		goToFeed(name) {
 			this.setProperties({
-				currentFeed: routeName,
+				currentFeed: name,
 				currentSubreddit: null,
 				currentPost: null
 			});
-			this.transitionToRoute(routeName);
+			this.transitionToRoute('feed', name);
 		},
 		goToSubreddit(name) {
 			this.setProperties({
