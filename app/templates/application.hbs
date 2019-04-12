@@ -41,10 +41,12 @@
 {{!-- notifications --}}
 {{notification-container position="bottom-left"}}
 
-{{!-- modals --}}
+{{!-- welcome modal --}}
 <Modal @title="Welcome" @confirmTitle="Okay" @myId="welcomeModal">
 	<p>Welcome to {{config "APP.name"}}!</p>
 </Modal>
+
+{{!-- login modal --}}
 <Modal @title="Login" @confirmTitle="Login" @myId="loginModal">
 	<form>
 		<div class="form-group">
@@ -55,5 +57,3 @@
 		</div>
 	</form>
 </Modal>
-{{#modals/welcome-comp}}{{/modals/welcome-comp}}
-{{#modals/login isVisible=false}}{{/modals/login}}
