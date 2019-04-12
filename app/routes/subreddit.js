@@ -8,6 +8,10 @@ export default Route.extend({
 		let controller = this.controllerFor('application');
 		controller.set('currentSubreddit', name);
 		
+		// if (this.controller && this.controller.get('model')) {
+		// 	return this.controller.get('model');
+		// }
+		
 		return this.reddit.api.getSubreddit(name).fetch()
 			.catch(() => { this.notifications.error('Couldn\'t fetch subreddit'); });
 	}

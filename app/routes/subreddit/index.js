@@ -7,6 +7,10 @@ export default Route.extend({
 	model() {
 		let { name } = this.paramsFor('subreddit');
 		
+		// if (this.controller && this.controller.get('model')) {
+		// 	return this.controller.get('model');
+		// }
+		
 		return this.reddit.api.getSubreddit(name).getHot()
 			.then(posts => {
 				return posts.map(post => {
