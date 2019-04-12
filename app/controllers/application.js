@@ -4,9 +4,7 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
 	reddit: service(),
 	
-	isFirstLaunch: true,
 	authenticatedUser: null,
-	subreddits: null,
 	
 	currentFeed: null,
 	currentSubreddit: null,
@@ -14,35 +12,46 @@ export default Controller.extend({
 	
 	init() {
 		this._super(...arguments);
+		
 		this.set('authenticatedUser', 'charlesfries'); // @TODO
-		this.set('subreddits', {
-			favorites: ['Android', 'apple', 'bitcoin', 'CombatFootage', 'cringe', 'HailCorporate', 'HipHopHeads', 'howardstern', 'roadcam', 'technology', 'teslamotors', 'videos', 'wallstreetbets', 'worldnews'],
-			subscriptions: ['Android', 'apple', 'bitcoin', 'CombatFootage', 'cringe', 'HailCorporate', 'HipHopHeads', 'howardstern', 'roadcam', 'technology', 'videos']
-		});
-		
-		
-		
-		// setTimeout(() => {
-		// 	let launchedBefore = localStorage.get('launchedBefore');
-		// 	this.set('launchedBefore', !isFirstLaunch);
-		// }, 3000);
+		this.showIntroduction();
 	},
+	
+	showIntroduction() {
+		let launchedBefore = localStorage.getItem('launchedBefore');
+		if (!launchedBefore) {
+			localStorage.setItem('launchedBefore', true);
+			setTimeout(() => {
+				$('#welcomeModal').modal('show');
+			}, 3000);
+		}
+	},
+	
 	actions: {
-		goToRoute(routeName) {
-			this.set('currentFeed', routeName);
-			this.set('currentSubreddit', null);
-			this.set('currentPost', null);
-			this.transitionToRoute(routeName);
+		goToFeed(name) {
+			this.setProperties({
+				currentFeed: name,
+				currentSubreddit: null,
+				currentPost: null
+			});
+			this.transitionToRoute('feed', name);
 		},
 		goToSubreddit(name) {
-			this.set('currentFeed', null);
-			this.set('currentSubreddit', name);
-			this.set('currentPost', null);
+			this.setProperties({
+				currentFeed: null,
+				currentSubreddit: name,
+				currentPost: null
+			});
 			this.transitionToRoute('subreddit', name);
 		},
+		showLogin() {
+			$('#loginModal').modal('show');
+		},
 		popSubreddit() {
-			this.set('currentSubreddit', null);
-			this.set('currentPost', null);
+			this.setProperties({
+				currentSubreddit: name,
+				currentPost: name
+			});
 		},
 		popPost() {
 			this.set('currentPost', null);

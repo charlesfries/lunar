@@ -3,17 +3,17 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
 	reddit: service(),
-	beforeModel() {
-		let controller = this.controllerFor('application');
-		controller.set('currentFeed', 'popular');
-	},
+	
 	model() {
-		return this.reddit.api.getHot()
-			.then(data => {
-				return data.map(post => {
+		let { name } = this.paramsFor('subreddit');
+		
+		return this.reddit.api.getSubreddit(name).getNew()
+			.then(posts => {
+				return posts.map(post => {
 					post.author = Object.assign({}, post.author);
 					return post;
 				});
-			});
+			})
+			.catch(() => { this.notifications.error('Couldn\'t fetch new'); });
 	}
 });

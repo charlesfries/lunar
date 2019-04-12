@@ -7,19 +7,19 @@
 <ul class="nav flex-column">
 	
 	{{#if isStatic}}
-		<li class="nav-item" {{action onTransition "feed.home"}}>
+		<li class="nav-item" {{action onFeed "home"}}>
 			<a class="nav-link" href="#">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
 				Home
 			</a>
 		</li>
-		<li class="nav-item" {{action onTransition "feed.popular"}}>
+		<li class="nav-item" {{action onFeed "popular"}}>
 			<a class="nav-link" href="#">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
 				Popular
 			</a>
 		</li>
-		<li class="nav-item" {{action onTransition "feed.all"}}>
+		<li class="nav-item" {{action onFeed "all"}}>
 			<a class="nav-link" href="#">
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
 				All
@@ -27,11 +27,11 @@
 		</li>
 	{{/if}}
 	
-	{{#each model as |title| }}
-		<li class="nav-item" {{action onSelection title}}>
-			<a class="nav-link" href="#">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-				r/{{title}}
+	{{#each model as |subreddit| }}
+		<li class="nav-item" {{action onSubreddit subreddit.display_name}}>
+			<a class="nav-link {{if active "active"}}" href="#">
+				<img src={{if subreddit.icon_img subreddit.icon_img "https://via.placeholder.com/24"}} class="rounded-circle">
+				{{subreddit.display_name_prefixed}}
 			</a>
 		</li>
 	{{/each}}

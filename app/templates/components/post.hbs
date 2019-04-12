@@ -5,24 +5,20 @@
 	{{#if model.is_self}}
 		<a href="#" class="text-dark" {{action onSelection (subcleaner model.subreddit_name_prefixed) model.id}}><img src="/images/self-post.png" alt=""></a>
 	{{else}}
-		<a href={{model.url}} target="_blank" rel="noopener">
-			<img src={{model.thumbnail}} alt="">
-		</a>
+		<a href={{model.url}} target="_blank" rel="noopener"><img src={{model.thumbnail}} alt=""></a>
 	{{/if}}
 </div>
 <div class="content">
 	<h6>
+		<span class="badge badge-secondary">{{model.link_flair_text}}</span>
 		<a href="#" class="text-dark" {{action onSelection (subcleaner model.subreddit_name_prefixed) model.id}}>{{model.title}}</a>
 		{{#unless model.is_self}}
 			<small><a href={{model.url}} target="_blank" rel="noopener">{{url model.url}}</a></small>
 		{{/unless}}
-		<span class="badge badge-secondary">{{model}}</span>
 	</h6>
 	<p class="mb-2">
 		{{#link-to "subreddit" (subcleaner model.subreddit_name_prefixed)}}{{model.subreddit_name_prefixed}}{{/link-to}}
-		&middot;
-		Posted by {{#link-to "user" model.author.name}}u/{{model.author.name}}{{/link-to}}
-		{{time-ago model.created}}
+		&middot; Posted by {{#link-to "user" model.author.name}}u/{{model.author.name}}{{/link-to}} {{time-ago model.created}}
 	</p>
 	<PostActions @model={{model}} @onComments={{action onSelection}} />
 </div>

@@ -1,14 +1,12 @@
 <div class="row">
 	<div class="col-9 px-0">
-		<ScrollContainer>
-			{{outlet}}
+		<ScrollContainer class="panel">
+			<Posts @model={{model}} @onSelection={{action "goToPost"}} />
 		</ScrollContainer>
 	</div>
 	<div class="col-3 px-0">
-		<ScrollContainer>
-			<Sidebar>
-				Feed
-			</Sidebar>
+		<ScrollContainer class="panel p-3">
+			<h4>/{{parent.currentFeed}}</h4>
 		</ScrollContainer>
 	</div>
 </div>

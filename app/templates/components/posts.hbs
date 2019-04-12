@@ -1,3 +1,24 @@
+<div class="d-flex flex-column flex-md-row align-items-center p-2 bg-white border-bottom">
+	<nav>
+		<!-- <div class="btn-group btn-group-sm" role="group">
+			<button type="button" class="btn btn-outline-primary"><i class="fa fa-times"></i></button>
+			<button type="button" class="btn btn-outline-primary">r/apple</button>
+		</div> -->
+		<div class="dropdown d-inline">
+			<button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+				/hot
+			</button>
+			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<!-- <a class="dropdown-item" href="#">Hot</a> -->
+				{{#link-to "subreddit.index" class="dropdown-item"}}Hot{{/link-to}}
+				{{#link-to "subreddit.new" class="dropdown-item"}}New{{/link-to}}
+				<a class="dropdown-item" href="#">Controversial</a>
+				<a class="dropdown-item" href="#">Top</a>
+				<a class="dropdown-item" href="#">Rising</a>
+			</div>
+		</div>
+	</nav>
+</div>
 {{#each model as |post|}}
 	<Post @model={{post}} @active={{active}} @onSelection={{action onSelection}} />
 {{/each}}

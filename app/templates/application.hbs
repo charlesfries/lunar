@@ -1,5 +1,4 @@
-
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm" style="-webkit-app-region:drag; position:relative; z-index:50;">
+<div class="d-flex flex-column flex-md-row align-items-center px-3 py-2 bg-white border-bottom shadow-sm" style="-webkit-app-region:drag; position:relative; z-index:50;">
 	<h5 class="my-0 mr-4 font-weight-normal">{{#link-to "index" class="text-dark"}}<i class="fa fa-rocket pr-1"></i> {{config "APP.name"}}{{/link-to}}</h5>
 	<nav class="mr-4">
 		<div class="btn-group" role="group">
@@ -28,13 +27,12 @@
 		<a class="p-2 text-dark" href="#">Messages</a>
 		<a class="p-2 text-dark" href="#">Create Post</a>
 	</nav>
-	<a class="btn btn-outline-primary" href="#">{{authenticatedUser}}</a>
+	<a class="btn btn-outline-primary" href="#" {{action "showLogin"}}>{{authenticatedUser}}</a>
 </div>
 <div class="container-fluid">
 	<div class="row">
-		{{#subreddit-list/table model=subreddits onTransition=(action "goToRoute") onSelection=(action "goToSubreddit")}}{{/subreddit-list/table}}
+		{{#subreddit-list/table api=model model=subreddits onFeed=(action "goToFeed") onSubreddit=(action "goToSubreddit")}}{{/subreddit-list/table}}
 		<div class="col-10">
-			{{#modals/welcome isVisible=true}}{{/modals/welcome}}
 			{{outlet}}
 		</div>
 	</div>
@@ -43,6 +41,19 @@
 {{!-- notifications --}}
 {{notification-container position="bottom-left"}}
 
-{{!-- modals --}}
+{{!-- welcome modal --}}
+<Modal @title="Welcome" @confirmTitle="Okay" @myId="welcomeModal">
+	<p>Welcome to {{config "APP.name"}}!</p>
+</Modal>
 
-{{#modals/login isVisible=false}}{{/modals/login}}
+{{!-- login modal --}}
+<Modal @title="Login" @confirmTitle="Login" @myId="loginModal">
+	<form>
+		<div class="form-group">
+			<input type="username" placeholder="Username" class="form-control" value={{username}}>
+		</div>
+		<div class="form-group mb-0">
+			<input type="password" placeholder="Password" class="form-control" value={{password}}>
+		</div>
+	</form>
+</Modal>

@@ -2,7 +2,4 @@
 	height: calc(100vh - #{$navbar-height});
 	overflow-x: hidden;
 	overflow-y: auto;
-	margin-left: 1em;
-	background-color: $foreground-color;
-	border-left: 1px solid $line-color;
 }

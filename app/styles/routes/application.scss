@@ -3,16 +3,3 @@ body {
 	font-size: .875rem !important;
 	user-select: none;
 }
-
-
-.col-1-5 {
-	// @include make-col(1.5);
-	// @extend .col-2;
-	max-width: 12.5%;
-}
-
-.col-10-5 {
-	// @include make-col(10.5);
-	// @extend .col-10;
-	max-width: 87.4999999997%;
-}

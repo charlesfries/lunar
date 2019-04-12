@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
 	reddit: service(),
 	
-	model({ id }) {
+	async model({ id }) {
 		let controller = this.controllerFor('application');
 		controller.set('currentPost', id);
 		
@@ -40,6 +40,8 @@ export default Route.extend({
 		controller.set('model', model);
 		let { id } = this.paramsFor('subreddit.post');
 		
+		controller.set('commentsLoading', true);
+		
 		this.reddit.api.getSubmission(id).fetch()
 			.then(data => {
 				data.author = Object.assign({}, data.author);
@@ -60,6 +62,7 @@ export default Route.extend({
 					});
 				
 				controller.set('model.comments', data.comments);
+				controller.set('commentsLoading', false);
 			});
 	}
 });
