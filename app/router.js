@@ -9,11 +9,9 @@ const Router = EmberRouter.extend({
 Router.map(function() {
     this.route('feed', { path: '/feed/:name' });
     this.route('subreddit', { path: '/r/:name' }, function() {
-      this.route('post', { path: '/:id' }, function() {});
-      this.route('create');
-
-      this.route('index', { path: '/' }, function() {});
-      this.route('new');
+			this.route('new');
+      this.route('post', { path: '/:id' });
+			this.route('create');
     });
     this.route('user', { path: '/u/:username' });
 });
