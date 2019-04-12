@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 export default Route.extend({
 	reddit: service(),
 	
-	model({ id }) {
+	async model({ id }) {
 		let controller = this.controllerFor('application');
 		controller.set('currentPost', id);
 		

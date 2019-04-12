@@ -2,6 +2,6 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
 	beforeModel() {
-		this.transitionTo('feed.home');
+		this.transitionTo('feed', 'home');
 	}
 });
