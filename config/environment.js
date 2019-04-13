@@ -18,9 +18,15 @@ module.exports = function(environment) {
     },
 
     APP: {
+			name: 'Lunar',
+			reddit: {
+				userAgent: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; en-en) AppleWebKit/533.19.4 (KHTML, like Gecko) Version/5.0.3 Safari/533.19.4',
+				clientId: '2WbQ7U0xP1U14Q',
+				clientSecret: 'XTB55Mpq8b93mMIkkw3VKnt5AoY',
+				refreshToken: '16799688-DmFhwSJUkoG_xuFzz6xq5yRcc6Q'
+			}
 			// Here you can pass flags/options to your application instance
       // when it is created
-			name: 'Lunar'
     },
 		
 		'ember-cli-notifications': {

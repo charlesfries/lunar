@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend({
 	reddit: service(),
+	notifications: service('notification-messages'),
 	
 	model() {
 		let { name } = this.paramsFor('subreddit');
