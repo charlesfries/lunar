@@ -1,6 +1,6 @@
 # lunar
 
-Lunar is a simple Reddit client that uses Electron, Ember, snoowrap, Bootstrap, and Ember Data integration is coming soon.
+Lunar is a simple Reddit client that uses Electron, Ember, snoowrap, and Bootstrap, with Ember Data integration coming soon.
 
 ## Prerequisites
 
