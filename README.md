@@ -1,7 +1,6 @@
 # lunar
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Lunar is a simple Reddit client that uses Electron, Ember, snoowrap, Bootstrap, and Ember Data integration is coming soon.
 
 ## Prerequisites
 
@@ -14,15 +13,14 @@ You will need the following things properly installed on your computer.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone https://github.com/charlesfries/lunar`
 * `cd lunar`
 * `npm install`
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
-* Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
+* `ember electron`
+* Run app in Electron with live-reload server.
 
 ### Code Generators
 
@@ -41,6 +39,7 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Building
 
+* `ember electron:make` - Generate platform specific distributables (installers, distribution packages, etc)
 * `ember build` (development)
 * `ember build --environment production` (production)
 
